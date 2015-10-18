@@ -5,4 +5,24 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 8 }, on: :create
   validates :password, length: { minimum: 8 }, on: :update, allow_blank: true
+
+  def self.ROLES
+  	%i[admin editor reviewer user banned]
+  end
+
+  def roles=(roles)
+  	roles = [*roles].map { |r| r.to_sym }
+  	self.roles_mask = (roles & User.ROLES).map { |r| 2**User.ROLES.index(r) }.inject(0, :+)
+  end
+
+  def roles
+  	User.ROLES.reject do |r|
+  		((roles_mask.to_i || 0) & 2**User.ROLES.index(r)).zero?
+		end
+	end
+
+	def has_role?(role)
+		roles.include?(role)
+	end
+
 end
