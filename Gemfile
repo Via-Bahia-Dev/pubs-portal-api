@@ -22,6 +22,9 @@ gem 'has_secure_token'
 # User Warden for authentication
 gem 'warden'
 
+# tzinfo for windows
+gem 'tzinfo-data'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
