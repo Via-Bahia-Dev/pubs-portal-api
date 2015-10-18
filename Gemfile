@@ -25,6 +25,9 @@ gem 'warden'
 # Use CanCanCan for authorization
 gem 'cancancan', '~> 1.10'
 
+# tzinfo for windows
+gem 'tzinfo-data'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
