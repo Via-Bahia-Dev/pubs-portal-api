@@ -33,3 +33,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# ignore local env file
+config/local_env.yml
