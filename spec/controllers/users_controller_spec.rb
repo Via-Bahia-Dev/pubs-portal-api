@@ -4,6 +4,7 @@ RSpec.describe UsersController, type: :controller do
 
   before do
     user = User.create(email: "user@email.com", password: "af3714ff0ffae", first_name: "user", last_name: "test")
+    user.add_roles([:admin])
     authentication_token = AuthenticationToken.create(user_id: user.id, body: "token", last_used_at: DateTime.current)
     request.env["HTTP_X_USER_EMAIL"] = user.email
     request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
