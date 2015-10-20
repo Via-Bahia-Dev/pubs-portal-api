@@ -43,6 +43,26 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "All new users have User role" do
+    it do
+      expect(user.has_role?(:user)).to eq(true)
+    end
+  end
+
+  describe "Adding Roles" do
+    it "should not replace other roles" do
+      user.add_roles([:admin])
+      expect(user.roles).to eq([:admin, :user])
+    end
+
+    it "multiple roles should work" do
+      user.add_roles([:editor, :reviewer])
+      expect(user.roles).to eq([:editor, :reviewer, :user])
+
+      user.add_roles([:admin])
+      expect(user.roles).to eq([:admin, :editor, :reviewer, :user])
+    end
+  end
 
   describe "setting Roles" do
     it "one role should work" do

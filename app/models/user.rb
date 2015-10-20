@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, on: :create
   validates :password, length: { minimum: 8 }, on: :update, allow_blank: true
 
+  before_save :give_user_role
+
   def self.ROLES
   	%i[admin editor reviewer user banned]
   end
@@ -24,5 +26,15 @@ class User < ActiveRecord::Base
 	def has_role?(role)
 		roles.include?(role)
 	end
+
+  def add_roles(roles)
+    self.roles = self.roles.concat(roles)
+    self.save!
+  end
+
+  private
+    def give_user_role
+      self.roles=(self.roles << :user)
+    end
 
 end
