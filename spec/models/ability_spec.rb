@@ -18,9 +18,21 @@ RSpec.describe Ability, type: :model do
 			end
 
 			context "when is a user" do
-				it "can sign out" do
-					should be_able_to(:destroy, :session)
-				end
+				it { should be_able_to(:destroy, :session) }
+				it { should_not be_able_to(:create, User.new) }
+				it { should_not be_able_to(:read, User.new) }
+				it { should_not be_able_to(:update, User.new) }
+				it { should be_able_to(:update, user)}
+				it { should_not be_able_to(:delete, User.new) }
+			end
+
+			context "when is anonymous" do
+				let(:user) { nil }
+				it { should be_able_to(:create, :session) }
+				it { should_not be_able_to(:create, User.new) }
+				it { should_not be_able_to(:read, User.new) }
+				it { should_not be_able_to(:update, User.new) }
+				it { should_not be_able_to(:delete, User.new) }
 			end
 		end
 	end
