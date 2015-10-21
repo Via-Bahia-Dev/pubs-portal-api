@@ -8,6 +8,7 @@ class Ability
 
     if user.has_role? :user
       can :destroy, :session # users can sign out
+      can :read, User, :id => user.id # users can view their own profile
       can :update, User, :id => user.id # users can update their own profile
     end
 
