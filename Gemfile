@@ -22,6 +22,9 @@ gem 'has_secure_token'
 # User Warden for authentication
 gem 'warden'
 
+# Use CanCanCan for authorization
+gem 'cancancan', '~> 1.10'
+
 # tzinfo for windows
 gem 'tzinfo-data'
 

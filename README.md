@@ -1,10 +1,13 @@
 # Publications Portal API [![Build Status](https://travis-ci.org/natyconnor/pubs-portal-api.svg?branch=master)](https://travis-ci.org/natyconnor/pubs-portal-api)
 
-This is the API for JoyPact's Publications Portal. Before doing the usual setup, you need to set up your postgres settings. You need a postgres user (i.e. role) with the username `joypact` and it's password is what JOY stands for. (Ask if you don't know). pgAdmin makes creating users easy. For security reasons, these are not hardcoded into the database.yml, but need to be stored in environment variables. The `application.rb` is set up to look for a file `config/local_env.yml` with these environment variables. You will need `DATABASE_USERNAME` and `DATABASE_PASSWORD`. Now you can do the usual setup:
+This is the API for JoyPact's Publications Portal. Before doing the usual setup, you need to set up your postgres settings. You need a postgres user (i.e. role) with the username `joypact` and it's password is what JOY stands for. (Ask if you don't know). pgAdmin makes creating users easy. Make sure this user can create database ojects.
 
-> `$ bundle install`
-> `$ rake db:setup`
-> `$ rake db:seed`
+For security reasons, these are not hardcoded into the database.yml, but need to be stored in environment variables. The `application.rb` is set up to look for a file `config/local_env.yml` with these environment variables. You will need `DATABASE_USERNAME` and `DATABASE_PASSWORD`. Now you can do the usual setup:
+
+```
+$ bundle install
+$ rake db:setup
+```
 
 Heroku is already set up with these if we ever need them.
 

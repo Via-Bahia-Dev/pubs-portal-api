@@ -4,6 +4,7 @@ RSpec.describe UsersController, type: :controller do
 
   before do
     user = User.create(email: "user@email.com", password: "af3714ff0ffae", first_name: "user", last_name: "test")
+    user.add_roles([:admin])
     authentication_token = AuthenticationToken.create(user_id: user.id, body: "token", last_used_at: DateTime.current)
     request.env["HTTP_X_USER_EMAIL"] = user.email
     request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
@@ -108,5 +109,30 @@ RSpec.describe UsersController, type: :controller do
       expect(response.status).to eq(204)
     end
   end
+
+  # describe "Role access" do
+  #   context "for admin" do
+  #     it "can GET #index" do
+  #       get :index
+  #       assert_template :index
+  #     end
+  #     it "can GET #show" do
+  #       get :show, { id: user.id }
+  #       assert_template :show
+  #     end
+  #     it "can POST #create" do
+  #       post :create, { user: valid_attributes }
+  #       expect(response.status).to eq(201)
+  #     end
+  #     it "can PUT #update" do
+  #       put :update, { id: user.id, user: { first_name: "newName" } }
+  #       expect(response.status).to eq(204)
+  #     end
+  #     it "can DELETE #destroy" do
+  #       delete :destroy, { id: user.id }
+  #       expect(response.status).to eq(204)
+  #     end
+  #   end
+  # end
 
 end

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  let(:user) { User.create(email: "user@email.com", password: "asdfasdf", first_name: "user", last_name: "test") }
+
+
   describe "db structure" do
     it { is_expected.to have_db_column(:email).of_type(:string) }
     it { is_expected.to have_db_column(:password_digest).of_type(:string) }
@@ -9,6 +12,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column(:last_name).of_type(:string) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:roles_mask).of_type(:integer) }
 
     it { is_expected.to have_db_index(:email) }
   end
@@ -32,5 +36,59 @@ RSpec.describe User, type: :model do
     it { expect(User.new({ email: "user@email.com", password: "foo", first_name: "user", last_name: "test" }).save).to be_falsey }
     it { expect(User.new({ email: "user@email.com", password: "af3714ff0ffae", first_name: "user", last_name: "test" }).save).to be_truthy }
   end
+
+  describe "ROLES list" do
+    it "should be [admin editor reviewer user banned]" do
+      expect(User.ROLES).to eq(%i[admin editor reviewer user banned])
+    end
+  end
+
+  describe "All new users have User role" do
+    it do
+      expect(user.has_role?(:user)).to eq(true)
+    end
+  end
+
+  describe "Adding Roles" do
+    it "should not replace other roles" do
+      user.add_roles([:admin])
+      expect(user.roles).to eq([:admin, :user])
+    end
+
+    it "multiple roles should work" do
+      user.add_roles([:editor, :reviewer])
+      expect(user.roles).to eq([:editor, :reviewer, :user])
+
+      user.add_roles([:admin])
+      expect(user.roles).to eq([:admin, :editor, :reviewer, :user])
+    end
+  end
+
+  describe "setting Roles" do
+    it "one role should work" do
+      user.roles = [:admin]
+      expect(user.roles).to eq([:admin])
+    end
+
+    it "should completely replace any old roles" do
+      user.roles = [:admin]
+      expect(user.roles).to eq([:admin])
+
+      user.roles = [:editor, :user]
+      expect(user.roles).to eq([:editor, :user])
+    end
+  end
+
+
+  describe "getting Roles" do
+    it "should only return valid roles" do
+      user.roles = [:admin, :badRole]
+      expect(user.roles).to eq([:admin])
+
+      user.roles = [:garbage]
+      expect(user.roles).to eq([])
+    end
+  end
+
 
 end
