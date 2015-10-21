@@ -13,27 +13,27 @@ RSpec.describe Ability, type: :model do
 
 				it "can manage Users" do
 					user.roles = [:admin, :user]
-					should be_able_to(:manage, User.new)
+					should be_able_to(:manage, User)
 				end
 			end
 
 			context "when is a user" do
 				it { should be_able_to(:destroy, :session) }
-				it { should_not be_able_to(:create, User.new) }
-				it { should_not be_able_to(:read, User.new) }
-				it { should be_able_to(:read, user) }
+				it { should_not be_able_to(:create, User) }
+				it { should_not be_able_to(:index, User) }
+				it { should be_able_to(:show, user) }
 				it { should_not be_able_to(:update, User.new) }
 				it { should be_able_to(:update, user)}
-				it { should_not be_able_to(:delete, User.new) }
+				it { should_not be_able_to(:delete, User) }
 			end
 
 			context "when is anonymous" do
 				let(:user) { nil }
 				it { should be_able_to(:create, :session) }
-				it { should_not be_able_to(:create, User.new) }
-				it { should_not be_able_to(:read, User.new) }
-				it { should_not be_able_to(:update, User.new) }
-				it { should_not be_able_to(:delete, User.new) }
+				it { should_not be_able_to(:create, User) }
+				it { should_not be_able_to(:read, User) }
+				it { should_not be_able_to(:update, User) }
+				it { should_not be_able_to(:delete, User) }
 			end
 		end
 	end
