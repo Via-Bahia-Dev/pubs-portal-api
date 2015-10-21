@@ -21,6 +21,7 @@ RSpec.describe Ability, type: :model do
 				it { should be_able_to(:destroy, :session) }
 				it { should_not be_able_to(:create, User.new) }
 				it { should_not be_able_to(:read, User.new) }
+				it { should be_able_to(:read, user) }
 				it { should_not be_able_to(:update, User.new) }
 				it { should be_able_to(:update, user)}
 				it { should_not be_able_to(:delete, User.new) }
