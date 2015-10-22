@@ -2,9 +2,6 @@ class PublicationRequestsController < ApplicationController
 
   load_and_authorize_resource
 
-  def new
-  end
-
   def create
     @publication_request = PublicationRequest.new(publication_request_params)
 
@@ -16,9 +13,6 @@ class PublicationRequestsController < ApplicationController
   end
 
   def update
-  end
-
-  def edit
   end
 
   def destroy
