@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'new_request' => 'publication_request#create'
+
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   resources :users, only: [:index, :show, :create, :update, :destroy]
