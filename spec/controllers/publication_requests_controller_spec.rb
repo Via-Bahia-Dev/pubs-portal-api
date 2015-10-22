@@ -58,6 +58,39 @@ RSpec.describe PublicationRequestsController, type: :controller do
     end
   end
 
+  describe "PUT #update" do
+    context "with valid params" do
+      let(:new_attributes) {
+        { event: "newName", dimensions: "half sheet", description: "new description"}
+      }
+
+      it "updates the requested publication_request" do
+        put :update, { id: publication_request.id, publication_request: new_attributes, format: :json  }
+        publication_request.reload
+        expect(publication_request.event).to eq("newName")
+        expect(publication_request.dimensions).to eq("half sheet")
+        expect(publication_request.description).to eq("new description")
+      end
+
+      it "assigns the requested publication_request as @publication_request" do
+        put :update, { id: publication_request.id, publication_request: valid_attributes, format: :json  }
+        expect(assigns(:publication_request)).to eq(publication_request)
+      end
+    end
+
+    context "with invalid params" do
+      it "assigns the publication_request as @publication_request" do
+        put :update, { id: publication_request.id, publication_request: invalid_attributes, format: :json  }
+        expect(assigns(:publication_request)).to eq(publication_request)
+      end
+
+      it "returns unprocessable_entity status" do
+        put :update, { id: publication_request.id, publication_request: invalid_attributes, format: :json }
+        expect(response.status).to eq(422)
+      end
+    end
+  end
+
   describe "DELETE #destroy" do
     it "destroys the requested publication_request" do
       expect {

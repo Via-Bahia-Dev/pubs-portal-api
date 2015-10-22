@@ -13,6 +13,11 @@ class PublicationRequestsController < ApplicationController
   end
 
   def update
+    if @publication_request.update(publication_request_params)
+      head :no_content
+    else
+      render json: { errors: @publication_request.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -31,8 +36,8 @@ class PublicationRequestsController < ApplicationController
 
   private
 
-    def publication_request_params
-      params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date, :user_id)
-    end
+  def publication_request_params
+    params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date, :user_id)
+  end
 
 end
