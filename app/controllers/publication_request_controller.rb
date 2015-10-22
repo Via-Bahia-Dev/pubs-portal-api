@@ -30,7 +30,7 @@ class PublicationRequestController < ApplicationController
   private
 
     def request_params
-      params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date)
+      params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date, :user_id)
     end
 
 end
