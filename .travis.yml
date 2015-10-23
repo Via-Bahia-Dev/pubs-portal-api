@@ -7,3 +7,6 @@ rvm:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database pubs_portal_test;' -U postgres
+
+notifications:
+  slack: joypactdev:ZDiuFI4GDQJ0KQzTgJljV29y

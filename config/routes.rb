@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   resources :users, only: [:index, :show, :create, :update, :destroy]
+  resources :publication_requests, only: [:index, :show, :create, :update, :destroy]
 
   # This needs to be last!
   match "/*path",
