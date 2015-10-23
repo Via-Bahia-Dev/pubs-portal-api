@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'sign_out' => 'sessions#destroy'
   resources :users, only: [:index, :show, :create, :update, :destroy]
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy]
+  resources :request_attachments
 
   # This needs to be last!
   match "/*path",

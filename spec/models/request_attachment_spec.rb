@@ -17,4 +17,8 @@ RSpec.describe RequestAttachment, type: :model do
 	describe "associations" do 
 		it { is_expected.to belong_to(:publication_request) }
 	end
+
+	describe "validations" do
+    it { is_expected.to validate_presence_of(:publication_request_id) }
+  end
 end

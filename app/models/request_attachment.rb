@@ -8,17 +8,18 @@ class RequestAttachment < ActiveRecord::Base
 	validates_attachment_content_type :file, content_type: [/\Aimage\/.*\Z/, 'application/x-rar-compressed', 'application/zip', 'application/pdf']
 	validates_attachment_file_name :file, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/, /zip\Z/, /rar\Z/, /psd\Z/, /pdf\Z/]
 
-	private
-		def check_file_type
-			if is_image_type?
-				{ large: "500x500>", medium: "300x300>", small: "100x100>", thumb: "50x50#" }
-			else
-				{}
-			end
+	validates_presence_of :publication_request_id
+	
+	def check_file_type
+		if is_image_type?
+			{ large: "500x500>", medium: "300x300>", small: "100x100>", thumb: "50x50#" }
+		else
+			{}
 		end
+	end
 
-		def is_image_type?
-			content_type = /\Aimage\/.*\Z/
-		end
+	def is_image_type?
+		content_type = /\Aimage\/.*\Z/
+	end
 
 end
