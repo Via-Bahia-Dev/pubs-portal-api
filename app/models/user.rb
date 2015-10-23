@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :authentication_tokens
   has_many :publication_requests
+  has_many :comments
   has_secure_password
   validates :password, length: { minimum: 8 }, on: :create
   validates :password, length: { minimum: 8 }, on: :update, allow_blank: true
