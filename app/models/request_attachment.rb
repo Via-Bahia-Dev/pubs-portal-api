@@ -1,4 +1,6 @@
 class RequestAttachment < ActiveRecord::Base
+	belongs_to :publication_request
+
 	has_attached_file :file, styles: lambda { |a| a.instance.check_file_type },
 		:url => "/:class/:attachment/:id/:style_:basename.:extension"
 
