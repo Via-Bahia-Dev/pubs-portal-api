@@ -1,4 +1,7 @@
-# Publications Portal API ![Build Status](https://travis-ci.org/Via-Bahia-Dev/pubs-portal-api.svg?branch=master)
+# Publications Portal API 
+![Build Status](https://travis-ci.org/Via-Bahia-Dev/pubs-portal-api.svg?branch=master)
+[![Code Climate](https://codeclimate.com/repos/562ad248e30ba07f4c00156e/badges/8be9ddf40cfe6cabc258/gpa.svg)](https://codeclimate.com/repos/562ad248e30ba07f4c00156e/feed)
+[![Test Coverage](https://codeclimate.com/repos/562ad248e30ba07f4c00156e/badges/8be9ddf40cfe6cabc258/coverage.svg)](https://codeclimate.com/repos/562ad248e30ba07f4c00156e/coverage)
 
 This is the API for JoyPact's Publications Portal. Before doing the usual setup, you need to set up your postgres settings. You need a postgres user (i.e. role) with the username `joypact` and it's password is what JOY stands for. (Ask if you don't know). pgAdmin makes creating users easy. Make sure this user can create database ojects.
 
