@@ -60,6 +60,11 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     has_secure_token (1.0.0)
@@ -172,6 +177,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   cancancan (~> 1.10)
+  factory_girl_rails
   has_secure_token
   paperclip (~> 4.3)
   pg
