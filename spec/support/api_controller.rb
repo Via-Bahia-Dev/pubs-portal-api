@@ -38,6 +38,20 @@ RSpec.shared_examples "api_controller" do
 
   end
 
+  describe "rescues from CanCan::AccessDenied" do
+
+    context "on POST #create" do
+      subject(:ability) { Ability.new(user) }
+      let(:user) { User.create(email: "user@email.com", password: "asdfasdf", first_name: "user", last_name: "test") }
+
+      before { post :create, { format: :json } }
+
+      it { expect(response.status).to eq(401) }
+      it { expect(response.body).to match(/error/) }
+    end
+
+  end
+
   # These specs don't work for some reason. No headers
   # describe "responds to OPTIONS requests to return CORS headers" do
 
