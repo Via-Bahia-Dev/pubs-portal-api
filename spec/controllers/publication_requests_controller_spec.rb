@@ -30,6 +30,13 @@ RSpec.describe PublicationRequestsController, type: :controller do
     end
   end
 
+  describe "GET #index" do
+    it "assigns all publication_requests as @publication_requests" do
+      get :index, { format: :json }
+      expect(assigns(:publication_requests)).to eq([publication_request])
+    end
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new PublicationRequest" do
