@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   before_save :give_user_role
 
   def self.ROLES
-  	%i[admin editor reviewer user banned]
+  	%i[admin designer reviewer user banned]
   end
 
   def roles=(roles)
