@@ -20,6 +20,9 @@ RSpec.describe User, type: :model do
   describe "associations" do
     it { is_expected.to have_many(:authentication_tokens) }
     it { is_expected.to have_many(:publication_requests) }
+    it { is_expected.to have_many(:requests_as_admin) }
+    it { is_expected.to have_many(:requests_as_designer) }
+    it { is_expected.to have_many(:requests_as_reviewer) }
     it { is_expected.to have_many(:comments) }
   end
 
@@ -40,8 +43,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "ROLES list" do
-    it "should be [admin editor reviewer user banned]" do
-      expect(User.ROLES).to eq(%i[admin editor reviewer user banned])
+    it "should be [admin designer reviewer user banned]" do
+      expect(User.ROLES).to eq(%i[admin designer reviewer user banned])
     end
   end
 
@@ -58,11 +61,11 @@ RSpec.describe User, type: :model do
     end
 
     it "multiple roles should work" do
-      user.add_roles([:editor, :reviewer])
-      expect(user.roles).to eq([:editor, :reviewer, :user])
+      user.add_roles([:designer, :reviewer])
+      expect(user.roles).to eq([:designer, :reviewer, :user])
 
       user.add_roles([:admin])
-      expect(user.roles).to eq([:admin, :editor, :reviewer, :user])
+      expect(user.roles).to eq([:admin, :designer, :reviewer, :user])
     end
   end
 
@@ -76,8 +79,8 @@ RSpec.describe User, type: :model do
       user.roles = [:admin]
       expect(user.roles).to eq([:admin])
 
-      user.roles = [:editor, :user]
-      expect(user.roles).to eq([:editor, :user])
+      user.roles = [:designer, :user]
+      expect(user.roles).to eq([:designer, :user])
     end
   end
 
