@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 
 	has_many :authentication_tokens
   has_many :publication_requests
+  has_many :requests_as_admin, :class_name => 'PublicationRequest', :foreign_key => 'admin_id'
+  has_many :requests_as_designer, :class_name => 'PublicationRequest', :foreign_key => 'designer_id'
+  has_many :requests_as_reviewer, :class_name => 'PublicationRequest', :foreign_key => 'reviewer_id'
   has_many :comments
   has_secure_password
   validates :password, length: { minimum: 8 }, on: :create

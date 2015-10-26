@@ -16,6 +16,9 @@ RSpec.describe PublicationRequest, type: :model do
 
   describe "associations" do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:designer) }
+    it { is_expected.to belong_to(:admin) }
+    it { is_expected.to belong_to(:reviewer) }
     it { is_expected.to have_many(:comments) }
 
   end
