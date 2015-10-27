@@ -20,6 +20,7 @@ RSpec.describe User, type: :model do
   describe "associations" do
     it { is_expected.to have_many(:authentication_tokens) }
     it { is_expected.to have_many(:publication_requests) }
+    it { is_expected.to have_many(:request_attachments) }
     it { is_expected.to have_many(:requests_as_admin) }
     it { is_expected.to have_many(:requests_as_designer) }
     it { is_expected.to have_many(:requests_as_reviewer) }
