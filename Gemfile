@@ -31,6 +31,9 @@ gem 'tzinfo-data'
 # paperclip for attachments
 gem 'paperclip', '~> 4.3'
 
+# aws for storage
+gem 'aws-sdk-v1'
+
 # Factory Girl for test data
 gem 'factory_girl_rails'
 
