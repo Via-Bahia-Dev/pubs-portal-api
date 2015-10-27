@@ -12,13 +12,16 @@ RSpec.describe RequestAttachment, type: :model do
 
 	describe "db structure" do
 		it { is_expected.to have_db_column(:publication_request_id).of_type(:integer) }
+		it { is_expected.to have_db_column(:user_id).of_type(:integer) }
 	end
 
 	describe "associations" do 
 		it { is_expected.to belong_to(:publication_request) }
+		it { is_expected.to belong_to(:user) }
 	end
 
 	describe "validations" do
     it { is_expected.to validate_presence_of(:publication_request_id) }
+    it { is_expected.to validate_presence_of(:user_id) }
   end
 end

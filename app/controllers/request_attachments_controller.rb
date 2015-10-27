@@ -37,7 +37,7 @@ class RequestAttachmentsController < ApplicationController
   private
 
   def request_attachment_params
-    params.require(:request_attachment).permit(:publication_request_id, :file)
+    params.require(:request_attachment).permit(:publication_request_id, :file, :user_id, :comment)
   end
 
 end

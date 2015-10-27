@@ -1,5 +1,6 @@
 class RequestAttachment < ActiveRecord::Base
 	belongs_to :publication_request
+	belongs_to :user
 
 	has_attached_file :file, styles: lambda { |a| a.instance.check_file_type },
 		:url => "/:class/:attachment/:id/:style_:basename.:extension"
@@ -9,6 +10,7 @@ class RequestAttachment < ActiveRecord::Base
 	validates_attachment_file_name :file, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/, /zip\Z/, /rar\Z/, /psd\Z/, /pdf\Z/]
 
 	validates_presence_of :publication_request_id
+	validates_presence_of :user_id
 	
 	def check_file_type
 		if is_image_type?
