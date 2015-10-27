@@ -15,6 +15,7 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to have_db_column(:admin_id).of_type(:integer) }
     it { is_expected.to have_db_column(:reviewer_id).of_type(:integer) }
     it { is_expected.to have_db_column(:designer_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:status).of_type(:string) }
   end
 
   describe "associations" do
@@ -37,6 +38,7 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to validate_presence_of(:admin_id) }
     it { is_expected.to validate_presence_of(:reviewer_id) }
     it { is_expected.to validate_presence_of(:designer_id) }
+    it { is_expected.to validate_presence_of(:status) }
   end
 
 end
