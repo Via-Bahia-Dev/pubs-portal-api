@@ -24,6 +24,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:requests_as_designer) }
     it { is_expected.to have_many(:requests_as_reviewer) }
     it { is_expected.to have_many(:comments) }
+    it { is_expected.to have_many(:templates) }
   end
 
   describe "validations" do

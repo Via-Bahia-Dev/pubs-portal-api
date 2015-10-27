@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :requests_as_designer, :class_name => 'PublicationRequest', :foreign_key => 'designer_id'
   has_many :requests_as_reviewer, :class_name => 'PublicationRequest', :foreign_key => 'reviewer_id'
   has_many :comments
+  has_many :templates
   has_secure_password
   validates :password, length: { minimum: 8 }, on: :create
   validates :password, length: { minimum: 8 }, on: :update, allow_blank: true
