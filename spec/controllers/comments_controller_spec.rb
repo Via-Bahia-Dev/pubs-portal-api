@@ -30,6 +30,13 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
+  describe "GET #index" do
+    it "assigns all comments as @comments" do
+      get :index, { format: :json }
+      expect(assigns(:comments)).to eq([comment])
+    end
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Comment" do
