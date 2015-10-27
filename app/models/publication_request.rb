@@ -1,5 +1,5 @@
 class PublicationRequest < ActiveRecord::Base
-	validates_presence_of :event, :description, :rough_date, :due_date, :event_date, :user_id, :dimensions, :admin_id, :designer_id, :reviewer_id
+	validates_presence_of :event, :description, :rough_date, :due_date, :event_date, :user_id, :dimensions, :admin_id, :designer_id, :reviewer_id, :status
 
 	belongs_to :user
 	belongs_to :admin, :class_name => 'User', :foreign_key => 'admin_id'
