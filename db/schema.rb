@@ -47,10 +47,19 @@ ActiveRecord::Schema.define(version: 20151027194142) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.integer  "designer_id"
-    t.integer  "admin_id"
-    t.integer  "reviewer_id"
     t.string   "status"
+  end
+
+  create_table "request_attachments", force: :cascade do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "publication_request_id"
+    t.integer  "user_id"
+    t.text     "comment"
   end
 
   create_table "templates", force: :cascade do |t|
@@ -74,4 +83,6 @@ ActiveRecord::Schema.define(version: 20151027194142) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
   add_foreign_key "authentication_tokens", "users"
+  add_foreign_key "request_attachments", "publication_requests"
+  add_foreign_key "request_attachments", "users"
 end

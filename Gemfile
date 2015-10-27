@@ -28,6 +28,15 @@ gem 'cancancan', '~> 1.10'
 # tzinfo for windows
 gem 'tzinfo-data'
 
+# paperclip for attachments
+gem 'paperclip', '~> 4.3'
+
+# aws for storage
+gem 'aws-sdk-v1'
+
+# Factory Girl for test data
+gem 'factory_girl_rails'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
