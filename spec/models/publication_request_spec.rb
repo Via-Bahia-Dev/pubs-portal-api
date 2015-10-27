@@ -12,10 +12,19 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to have_db_column(:event_date).of_type(:datetime) }
     it { is_expected.to have_db_column(:dimensions).of_type(:string) }
     it { is_expected.to have_db_column(:user_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:admin_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:reviewer_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:designer_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:status).of_type(:string) }
   end
 
   describe "associations" do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:designer) }
+    it { is_expected.to belong_to(:admin) }
+    it { is_expected.to belong_to(:reviewer) }
+    it { is_expected.to have_many(:comments) }
+
   end
 
   describe "validations" do
@@ -26,6 +35,10 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to validate_presence_of(:event_date) }
     it { is_expected.to validate_presence_of(:dimensions) }
     it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:admin_id) }
+    it { is_expected.to validate_presence_of(:reviewer_id) }
+    it { is_expected.to validate_presence_of(:designer_id) }
+    it { is_expected.to validate_presence_of(:status) }
   end
 
 end

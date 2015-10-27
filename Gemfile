@@ -46,6 +46,8 @@ gem 'factory_girl_rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

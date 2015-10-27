@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 20151027174751) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "designer_id"
+    t.integer  "admin_id"
+    t.integer  "reviewer_id"
+    t.string   "status"
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "dimensions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "request_attachments", force: :cascade do |t|

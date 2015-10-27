@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :update, :destroy]
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy]
   resources :request_attachments
+  resources :comments, only: [:index, :show, :create, :update, :destroy]
+  resources :templates, only: [:index, :show, :create, :update, :destroy]
 
   # This needs to be last!
   match "/*path",

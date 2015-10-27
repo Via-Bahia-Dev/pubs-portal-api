@@ -14,11 +14,11 @@ RSpec.describe PublicationRequestsController, type: :controller do
   it_behaves_like "authenticated_api_controller"
 
   let(:valid_attributes) {
-    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1 }
+    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" }
   }
 
   let(:invalid_attributes) {
-    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1 }
+    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" }
   }
 
   let!(:publication_request) { PublicationRequest.create(valid_attributes) }
@@ -27,6 +27,13 @@ RSpec.describe PublicationRequestsController, type: :controller do
     it "assigns the publication_request as @publication_request" do
       get :show, { id: publication_request.id, format: :json }
       expect(assigns(:publication_request)).to eq(publication_request)
+    end
+  end
+
+  describe "GET #index" do
+    it "assigns all publication_requests as @publication_requests" do
+      get :index, { format: :json }
+      expect(assigns(:publication_requests)).to eq([publication_request])
     end
   end
 
