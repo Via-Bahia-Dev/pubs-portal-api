@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20151027194142) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "designer_id"
+    t.integer  "admin_id"
+    t.integer  "reviewer_id"
     t.string   "status"
   end
 

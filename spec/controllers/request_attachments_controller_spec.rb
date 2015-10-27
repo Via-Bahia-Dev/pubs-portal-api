@@ -16,13 +16,18 @@ RSpec.describe RequestAttachmentsController, type: :controller do
 
   let(:user) { User.create(email: "user2@email.com", password: "af3714ff0ffae", first_name: "user2", last_name: "test") }
 
-  let(:pr) { PublicationRequest.create(event: "Test Event 2015",
-		description: "Awesome test event this weekend.",
-		rough_date: "Mon, 17 Dec 2015 00:00:00 +0000",
-		due_date: "Mon, 17 Dec 2015 00:00:00 +0000",
-		event_date: "Mon, 17 Dec 2015 00:00:00 +0000" ,
-		dimensions: "quarter",
-		user_id: user.id) }
+  let(:pr) { PublicationRequest.create(event: "Test Event 2015", 
+  	description: "Awesome test event this weekend.",
+  	rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", 
+  	due_date: "Mon, 17 Dec 2015 00:00:00 +0000", 
+  	event_date: "Mon, 17 Dec 2015 00:00:00 +0000", 
+  	dimensions: "quarter", 
+  	user_id: 1, 
+  	admin_id: 2, 
+  	designer_id: 3, 
+  	reviewer_id: 4, 
+  	status: "unassigned" ) 
+	}
 
   let(:valid_attributes) {
     { publication_request_id: pr.id, file: File.new(Rails.root + 'app/assets/images/test-image.jpg'), user_id: user.id }
