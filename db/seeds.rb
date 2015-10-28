@@ -12,5 +12,17 @@
 end
 
 (1..5).each do |i|
-	PublicationRequest.create(event: "Test Event #{2015+i}", description: "Awesome test event this weekend.",  rough_date: "Mon, #{17+i} Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: i)
+	PublicationRequest.create(event: "Test Event #{2015+i}", description: "Awesome test event this weekend.",  rough_date: "Mon, #{17+i} Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: i, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "In Progress")
+end
+
+(1..5).each do |i|
+	Template.create(name: "Test Template #{i}", user_id: i,  dimensions: "5x#{i+1}" )
 end		
+
+(1..5).each do |i|
+	Comment.create(user_id: i, publication_request_id: i,  date: "Mon, #{17+i} Dec 2015 00:00:00 +0000", content: "This is test comment #{i}." )
+end	
+
+(1..5).each do |i|
+	RequestAttachment.create(publication_request_id: i, file: File.new(Rails.root + 'app/assets/images/test-image.jpg'), user_id: i )
+end	
