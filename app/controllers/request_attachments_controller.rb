@@ -31,7 +31,8 @@ class RequestAttachmentsController < ApplicationController
   end
 
   def show
-    render json: { data: @request_attachment }
+    puts @request_attachment.request_attachment_urls
+    render json: { data: @request_attachment }, :methods => :request_attachment_urls
   end
 
   private
