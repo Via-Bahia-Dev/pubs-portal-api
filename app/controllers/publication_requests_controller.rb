@@ -27,7 +27,7 @@ class PublicationRequestsController < ApplicationController
 
   def index
     @publication_requests = PublicationRequest.all
-    render json: { data: @publication_requests }
+    render json: { data: @publication_requests }, include: ['request_attachments', 'comments']
   end
 
   def show
