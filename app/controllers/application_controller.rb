@@ -16,10 +16,10 @@ class ApplicationController < ActionController::API
   end
 
   def missing_param_error(exception)
-    render status: :unprocessable_entity, json: { error: exception.message }
+    render status: :unprocessable_entity, json: { errors: exception.message }
   end
 
   def access_denied(exception)
-    render status: :forbidden, json: { error: exception.message }
+    render status: :forbidden, json: { errors: exception.message }
   end
 end
