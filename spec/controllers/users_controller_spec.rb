@@ -15,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
   it_behaves_like "authenticated_api_controller"
 
   let(:valid_attributes) {
-    { email: "test@test.com", password: "asdfasdf",  first_name: "Test", last_name: "Name" }
+    { email: "test1@test.com", password: "asdfasdf",  first_name: "Test", last_name: "Name" }
   }
 
   let(:invalid_attributes) {
