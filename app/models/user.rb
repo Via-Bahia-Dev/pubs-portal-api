@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	validates_presence_of :email, :first_name, :last_name
+  validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "is an invalid email address"}
+  validates_uniqueness_of :email
 
 	has_many :authentication_tokens
   has_many :publication_requests
@@ -13,8 +15,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, on: :create
   validates :password, length: { minimum: 8 }, on: :update, allow_blank: true
 
-  validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "is an invalid email address"}
-  validates_uniqueness_of :email
+  
 
   before_save :give_user_role
 
