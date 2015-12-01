@@ -7,4 +7,5 @@ class Template < ActiveRecord::Base
   validates_attachment_file_name :image, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
 
 	belongs_to :user
+	has_and_belongs_to_many :publication_requests
 end

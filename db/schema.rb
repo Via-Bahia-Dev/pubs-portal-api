@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201195214) do
+ActiveRecord::Schema.define(version: 20151201203859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20151201195214) do
     t.integer  "reviewer_id"
     t.string   "status"
   end
+
+  create_table "publication_requests_templates", force: :cascade do |t|
+    t.integer "publication_request_id"
+    t.integer "template_id"
+  end
+
+  add_index "publication_requests_templates", ["publication_request_id"], name: "index_publication_requests_templates_on_publication_request_id", using: :btree
+  add_index "publication_requests_templates", ["template_id"], name: "index_publication_requests_templates_on_template_id", using: :btree
 
   create_table "request_attachments", force: :cascade do |t|
     t.string   "file_file_name"
