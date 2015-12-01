@@ -17,7 +17,6 @@ class TemplatesController < ApplicationController
     if @template.save
       render json: { data: @template }, status: :created
     else
-      byebug
       render json: { errors: @template.errors }, status: :unprocessable_entity
     end
   end
