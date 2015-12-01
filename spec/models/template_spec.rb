@@ -20,6 +20,7 @@ RSpec.describe Template, type: :model do
 
   describe "associations" do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_and_belong_to_many(:publication_requests) }
   end
 
   describe "validations" do
