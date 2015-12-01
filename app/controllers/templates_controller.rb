@@ -17,6 +17,7 @@ class TemplatesController < ApplicationController
     if @template.save
       render json: { data: @template }, status: :created
     else
+      byebug
       render json: { errors: @template.errors }, status: :unprocessable_entity
     end
   end
@@ -37,7 +38,7 @@ class TemplatesController < ApplicationController
   private
 
   def template_params
-    params.require(:template).permit(:name, :user_id, :dimensions)
+    params.require(:template).permit(:name, :user_id, :dimensions, :image)
   end
 
 end
