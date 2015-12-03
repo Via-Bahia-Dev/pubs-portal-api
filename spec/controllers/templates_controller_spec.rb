@@ -14,7 +14,7 @@ RSpec.describe TemplatesController, type: :controller do
   it_behaves_like "authenticated_api_controller"
 
   let(:valid_attributes) {
-    { name: "2015 NSWN Flyer", user_id: 1,  dimensions: "5x7", image: File.new(Rails.root + 'app/assets/images/test-image.jpg') }
+    { name: "2015 NSWN Flyer", user_id: 1,  dimensions: "5x7", image: File.new(Rails.root + 'app/assets/images/test-image.jpg'), link: "www.google.com" }
   }
 
   let(:invalid_attributes) {
