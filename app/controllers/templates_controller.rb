@@ -4,11 +4,11 @@ class TemplatesController < ApplicationController
 
   def index
     @templates = Template.all
-    render json: { data: @templates }
+    render json: { data: serialized_templates(@templates) }
   end
 
   def show
-    render json: { data: @template }
+    render json: { data: serialized_templates(@template) }
   end
 
   def create
@@ -38,6 +38,10 @@ class TemplatesController < ApplicationController
 
   def template_params
     params.require(:template).permit(:name, :user_id, :dimensions, :image, :link, :category)
+  end
+
+  def serialized_templates(objects)
+    ActiveModel::SerializableResource.new(objects).serializable_hash
   end
 
 end
