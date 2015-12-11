@@ -51,6 +51,7 @@ GEM
       nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     bcrypt (3.1.10-x64-mingw32)
+    bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -89,6 +90,8 @@ GEM
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-x64-mingw32)
       mini_portile (~> 0.6.0)
+    nokogiri (1.6.6.2-x86-mingw32)
+      mini_portile (~> 0.6.0)
     paperclip (4.3.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -97,6 +100,7 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.18.3)
     pg (0.18.3-x64-mingw32)
+    pg (0.18.3-x86-mingw32)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -182,6 +186,7 @@ GEM
 PLATFORMS
   ruby
   x64-mingw32
+  x86-mingw32
 
 DEPENDENCIES
   active_model_serializers!
@@ -204,6 +209,3 @@ DEPENDENCIES
   tzinfo-data
   warden
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.6

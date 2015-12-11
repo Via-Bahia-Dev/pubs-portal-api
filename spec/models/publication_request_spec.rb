@@ -24,7 +24,7 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to belong_to(:admin) }
     it { is_expected.to belong_to(:reviewer) }
     it { is_expected.to have_many(:comments) }
-
+    it { is_expected.to have_and_belong_to_many(:templates) }
   end
 
   describe "validations" do
