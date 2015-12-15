@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   resources :users, only: [:index, :show, :create, :update, :destroy]
-  resources :publication_requests, only: [:index, :show, :create, :update, :destroy]
-  resources :request_attachments
-  resources :comments, only: [:index, :show, :create, :update, :destroy]
+  resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do
+    resources :request_attachments, only: [:index, :create]
+    resources :comments, only: [:index, :create]
+  end
+  resources :request_attachments, only: [:show, :update, :destroy]
+  resources :comments, only: [:show, :update, :destroy]
+
+
   resources :templates, only: [:index, :show, :create, :update, :destroy]
 
   # This needs to be last!

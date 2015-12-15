@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.publication_request_id = params[:publication_request_id]
+    @comment.user_id = current_user.id
 
     if @comment.save
       render json: { data: @comment }, status: :created
@@ -26,7 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @comments = Comment.all
     render json: { data: @comments }
   end
 
@@ -37,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :publication_request_id, :date, :content)
+    params.require(:comment).permit(:content)
   end
 
 end

@@ -7,7 +7,6 @@ RSpec.describe Comment, type: :model do
   describe "db structure" do
     it { is_expected.to have_db_column(:user_id).of_type(:integer) }
     it { is_expected.to have_db_column(:content).of_type(:text) }
-    it { is_expected.to have_db_column(:date).of_type(:datetime) }
     it { is_expected.to have_db_column(:publication_request_id).of_type(:integer) }
   end
 
@@ -19,7 +18,6 @@ RSpec.describe Comment, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:content) }
-    it { is_expected.to validate_presence_of(:date) }
     it { is_expected.to validate_presence_of(:publication_request_id) }
   end
 end
