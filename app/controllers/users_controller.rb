@@ -35,6 +35,15 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def admins
+  end
+
+  def designers
+  end
+
+  def reviewers
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
