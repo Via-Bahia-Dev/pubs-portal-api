@@ -10,7 +10,7 @@ RSpec.describe RequestAttachmentsController, type: :controller do
     request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
   end
 
-  it_behaves_like "api_controller"
+  it_behaves_like "publication_request_api_controller"
   it_behaves_like "authenticated_api_controller"
 
   let(:user) { User.create(email: "user2@email.com", password: "af3714ff0ffae", first_name: "user2", last_name: "test") }
@@ -29,18 +29,18 @@ RSpec.describe RequestAttachmentsController, type: :controller do
              }
 
   let(:valid_attributes) {
-    { publication_request_id: pr.id, file: File.new(Rails.root + 'app/assets/images/test-image.jpg'), user_id: user.id }
+    {  file: File.new(Rails.root + 'app/assets/images/test-image.jpg') }
   }
 
   let(:invalid_attributes) {
-    { publication_request_id: pr.id, file: nil, user_id: user.id }
+    { file: nil }
   }
 
-  let!(:request_attachment) { RequestAttachment.create(valid_attributes) }
+  let!(:request_attachment) { RequestAttachment.create(valid_attributes.merge({publication_request_id: pr.id, user_id: user.id })) }
 
   describe "GET #index" do
     it "assigns all request_attachments as @request_attachments" do
-      get :index, { format: :json }
+      get :index, { publication_request_id: pr.id, format: :json }
       expect(assigns(:request_attachments)).to eq([request_attachment])
     end
   end
@@ -56,12 +56,12 @@ RSpec.describe RequestAttachmentsController, type: :controller do
     context "with valid params" do
       it "creates a new RequestAttachment" do
         expect {
-          post :create, { request_attachment: valid_attributes, format: :json  }
+          post :create, { publication_request_id: pr.id, request_attachment: valid_attributes, format: :json  }
         }.to change(RequestAttachment, :count).by(1)
       end
 
       it "assigns a newly created attachment as @request_attachment" do
-        post :create, { request_attachment: valid_attributes, format: :json  }
+        post :create, { publication_request_id: pr.id, request_attachment: valid_attributes, format: :json  }
         expect(assigns(:request_attachment)).to be_a(RequestAttachment)
         expect(assigns(:request_attachment)).to be_persisted
       end
@@ -69,12 +69,12 @@ RSpec.describe RequestAttachmentsController, type: :controller do
 
     context "with invalid params" do
       it "assigns a newly created but unsaved request_attachment as @request_attachment" do
-        post :create, { request_attachment: invalid_attributes, format: :json  }
+        post :create, { publication_request_id: pr.id, request_attachment: invalid_attributes, format: :json  }
         expect(assigns(:request_attachment)).to be_a(RequestAttachment)
       end
 
       it "returns unprocessable_entity status" do
-        put :create, { request_attachment: invalid_attributes }
+        put :create, { publication_request_id: pr.id, request_attachment: invalid_attributes }
         expect(response.status).to eq(422)
       end
     end

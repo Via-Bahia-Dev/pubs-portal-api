@@ -4,6 +4,8 @@ class RequestAttachmentsController < ApplicationController
 
   def create
     @request_attachment = RequestAttachment.new(request_attachment_params)
+    @request_attachment.publication_request_id = params[:publication_request_id]
+    @request_attachment.user_id = current_user.id
 
     if @request_attachment.save
       render json: { data: @request_attachment }, status: :created
@@ -26,19 +28,17 @@ class RequestAttachmentsController < ApplicationController
   end
 
   def index
-    @request_attachments = RequestAttachment.all
     render json: { data: @request_attachments }
   end
 
   def show
-    puts @request_attachment.request_attachment_urls
     render json: { data: @request_attachment }, :methods => :request_attachment_urls
   end
 
   private
 
   def request_attachment_params
-    params.require(:request_attachment).permit(:publication_request_id, :file, :user_id, :comment)
+    params.require(:request_attachment).permit(:file, :comment)
   end
 
 end

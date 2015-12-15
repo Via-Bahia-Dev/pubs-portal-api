@@ -8,20 +8,22 @@ RSpec.describe CommentsController, type: :controller do
     authentication_token = AuthenticationToken.create(user_id: user.id, body: "token", last_used_at: DateTime.current)
     request.env["HTTP_X_USER_EMAIL"] = user.email
     request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
+    PublicationRequest.create(event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" )
   end
 
-  it_behaves_like "api_controller"
+  it_behaves_like "publication_request_api_controller"
   it_behaves_like "authenticated_api_controller"
 
   let(:valid_attributes) {
-    { user_id: 1, content: "This is the best flyer ever.", date: "Mon, 17 Dec 2016 00:05:00 +0000", publication_request_id: 1 }
+    { content: "This is the best flyer ever." }
   }
 
   let(:invalid_attributes) {
-    { user_id: nil, content: 45, date: "Mon, 17 Dec 2016 00:05:00 +0000", publication_request_id: 1 }
+    { content: nil }
   }
 
-  let!(:comment) { Comment.create(valid_attributes) }
+  # Need to merge in publication_request_id since comment attributes no longer has it due to nested route
+  let!(:comment) { Comment.create(valid_attributes.merge({ user_id: 1, publication_request_id: 1 })) }
 
   describe "GET #show" do
     it "assigns the comment as @comment" do
@@ -32,7 +34,7 @@ RSpec.describe CommentsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all comments as @comments" do
-      get :index, { format: :json }
+      get :index, { publication_request_id: 1, format: :json }
       expect(assigns(:comments)).to eq([comment])
     end
   end
@@ -41,12 +43,12 @@ RSpec.describe CommentsController, type: :controller do
     context "with valid params" do
       it "creates a new Comment" do
         expect {
-          post :create, { comment: valid_attributes, format: :json  }
+          post :create, { comment: valid_attributes, publication_request_id: 1, format: :json  }
         }.to change(Comment, :count).by(1)
       end
 
       it "assigns a newly created comment as @comment" do
-        post :create, { comment: valid_attributes, format: :json  }
+        post :create, { comment: valid_attributes, publication_request_id: 1, format: :json  }
         expect(assigns(:comment)).to be_a(Comment)
         expect(assigns(:comment)).to be_persisted
       end
@@ -54,12 +56,12 @@ RSpec.describe CommentsController, type: :controller do
 
     context "with invalid params" do
       it "assigns a newly created but unsaved comment as @comment" do
-        post :create, { comment: invalid_attributes, format: :json  }
+        post :create, { comment: invalid_attributes, publication_request_id: 1, format: :json  }
         expect(assigns(:comment)).to be_a(Comment)
       end
 
       it "returns unprocessable_entity status" do
-        put :create, { comment: invalid_attributes }
+        put :create, { comment: invalid_attributes, publication_request_id: 1 }
         expect(response.status).to eq(422)
       end
     end
@@ -68,7 +70,7 @@ RSpec.describe CommentsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { content: "Actually this is the worst flyer ever.", user_id: 1, publication_request_id: 1, date: "October 20, 2016"}
+        { content: "Actually this is the worst flyer ever.", user_id: 1, date: "October 20, 2016"}
       }
 
       it "updates the requested comment" do
