@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
-  resources :users, only: [:index, :show, :create, :update, :destroy]
+  resources :users, only: [:index, :show, :create, :update, :destroy] do
+    collection do
+      get 'admins'
+      get 'designers'
+      get 'reviewers'
+    end
+  end
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do
     resources :request_attachments, only: [:index, :create]
     resources :comments, only: [:index, :create]
