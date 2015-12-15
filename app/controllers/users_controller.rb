@@ -36,16 +36,32 @@ class UsersController < ApplicationController
   end
 
   def admins
+    @users = users_with_role(:admin)
+    render json: { data: @users }
   end
 
   def designers
+    @users = users_with_role(:designer)
+    render json: { data: @users }
   end
 
   def reviewers
+    @users = users_with_role(:reviewer)
+    render json: { data: @users }
   end
 
   private
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
+    end
+
+    def users_with_role(role)
+      users = []
+      User.all.each do |user|
+        if user.has_role?(role)
+          users << user
+        end
+      end
+      return users
     end
 end
