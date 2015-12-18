@@ -22,4 +22,8 @@ class ApplicationController < ActionController::API
   def access_denied(exception)
     render status: :forbidden, json: { errors: exception.message }
   end
+
+  def serialized_objects(objects)
+    ActiveModel::SerializableResource.new(objects).serializable_hash
+  end
 end
