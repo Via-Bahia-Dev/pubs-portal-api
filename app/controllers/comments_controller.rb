@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      render json: { data: @comment }, status: :created
+      render json: { data: serialized_objects(@comment) }, status: :created
     else
       render json: { errors: @comment.errors }, status: :unprocessable_entity
     end
@@ -28,11 +28,11 @@ class CommentsController < ApplicationController
   end
 
   def index
-    render json: { data: @comments }
+    render json: { data: serialized_objects(@comments) }
   end
 
   def show
-    render json: { data: @comment }
+    render json: { data: serialized_objects(@comment) }
   end
 
   private
