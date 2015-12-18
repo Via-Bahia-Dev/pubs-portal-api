@@ -5,18 +5,18 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: { data: @users }
+    render json: { data: serialized_objects(@users) }
   end
 
   def show
-    render json: { data: @user }
+    render json: { data: serialized_objects(@user) }
   end
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      render json: { data: @user }, status: :created, location: @user
+      render json: { data: serialized_objects(@user) }, status: :created, location: @user
     else
       render json: { errors: @user.errors }, status: :unprocessable_entity
     end
@@ -37,17 +37,17 @@ class UsersController < ApplicationController
 
   def admins
     @users = users_with_role(:admin)
-    render json: { data: @users }
+    render json: { data: serialized_objects(@users) }
   end
 
   def designers
     @users = users_with_role(:designer)
-    render json: { data: @users }
+    render json: { data: serialized_objects(@users) }
   end
 
   def reviewers
     @users = users_with_role(:reviewer)
-    render json: { data: @users }
+    render json: { data: serialized_objects(@users) }
   end
 
   private
@@ -64,4 +64,5 @@ class UsersController < ApplicationController
       end
       return users
     end
+
 end

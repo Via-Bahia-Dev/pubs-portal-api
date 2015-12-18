@@ -8,7 +8,7 @@ class RequestAttachmentsController < ApplicationController
     @request_attachment.user_id = current_user.id
 
     if @request_attachment.save
-      render json: { data: @request_attachment }, status: :created
+      render json: { data: serialized_objects(@request_attachment) }, status: :created
     else
       render json: { errors: @request_attachment.errors }, status: :unprocessable_entity
     end
@@ -28,11 +28,11 @@ class RequestAttachmentsController < ApplicationController
   end
 
   def index
-    render json: { data: @request_attachments }
+    render json: { data: serialized_objects(@request_attachments) }
   end
 
   def show
-    render json: { data: @request_attachment }, :methods => :request_attachment_urls
+    render json: { data: serialized_objects(@request_attachment) }, :methods => :request_attachment_urls
   end
 
   private
