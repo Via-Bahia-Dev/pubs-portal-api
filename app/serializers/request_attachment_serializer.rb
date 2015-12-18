@@ -1,5 +1,5 @@
 class RequestAttachmentSerializer < ActiveModel::Serializer
-  attributes :id, :created_at, :updated_at, :comment,
+  attributes :id, :created_at, :updated_at, :comment, :publication_request_id,
   								:file_file_name, :file_file_size, :file_original, :file_large, :file_medium, :file_small, :file_thumb
 
   belongs_to :user
