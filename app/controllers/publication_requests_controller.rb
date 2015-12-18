@@ -11,7 +11,7 @@ class PublicationRequestsController < ApplicationController
     end
 
     if @publication_request.save
-      render json: { data: @publication_request }, status: :created
+      render json: { data: serialized_objects(@publication_request) }, status: :created
     else
       render json: { errors: @publication_request.errors }, status: :unprocessable_entity
     end
@@ -32,11 +32,11 @@ class PublicationRequestsController < ApplicationController
 
   def index
     @publication_requests = PublicationRequest.all
-    render json: { data: @publication_requests }, include: ['request_attachments', 'comments']
+    render json: { data: serialized_objects(@publication_requests) }
   end
 
   def show
-    render json: { data: @publication_request }
+    render json: { data: serialized_objects(@publication_request) }
   end
 
   private
