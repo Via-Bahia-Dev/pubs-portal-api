@@ -48,6 +48,17 @@ RSpec.describe Ability, type: :model do
 				it { should_not be_able_to(:update, RequestAttachment.new) }
 				it { should be_able_to(:destroy, attachment) }
 				it { should_not be_able_to(:destroy, RequestAttachment.new) }
+
+				# Comments
+				it { should be_able_to(:read, Comment) }
+				it { should be_able_to(:create, Comment) }
+				it { should be_able_to(:update, attachment) }
+				it { should_not be_able_to(:update, Comment.new) }
+				it { should be_able_to(:destroy, attachment) }
+				it { should_not be_able_to(:destroy, Comment.new) }
+
+				# Templates
+				it { should be_able_to(:read, Template) }
 			end
 
 			context "when is anonymous" do
