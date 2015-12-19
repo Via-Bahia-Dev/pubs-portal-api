@@ -14,6 +14,10 @@ class Ability
       can :create, RequestAttachment
       can :update, RequestAttachment, :user_id => user.id
       can :destroy, RequestAttachment, :user_id => user.id
+      can :read, Comment
+      can :create, Comment
+      can :update, Comment, :user_id => user.id
+      can :destroy, Comment, :user_id => user.id
       can :read, Template
     end
 
