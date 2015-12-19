@@ -38,4 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # This was needed in windows. Not sure what will happen on other systems
+  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.9.2-Q16'
+  Paperclip.options[:swallow_stderr] = false
+
 end
