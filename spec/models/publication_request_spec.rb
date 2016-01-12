@@ -16,6 +16,7 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to have_db_column(:reviewer_id).of_type(:integer) }
     it { is_expected.to have_db_column(:designer_id).of_type(:integer) }
     it { is_expected.to have_db_column(:status).of_type(:string) }
+    it { is_expected.to have_db_column(:template_id).of_type(:integer) }
   end
 
   describe "associations" do
@@ -24,7 +25,7 @@ RSpec.describe PublicationRequest, type: :model do
     it { is_expected.to belong_to(:admin) }
     it { is_expected.to belong_to(:reviewer) }
     it { is_expected.to have_many(:comments) }
-    it { is_expected.to have_and_belong_to_many(:templates) }
+    it { is_expected.to belong_to(:template) }
   end
 
   describe "validations" do

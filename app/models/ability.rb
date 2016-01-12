@@ -10,6 +10,9 @@ class Ability
       can :destroy, :session # users can sign out
       can :show, User, :id => user.id # users can view their own profile
       can :update, User, :id => user.id # users can update their own profile
+      can :admins, User
+      can :reviewers, User
+      can :designers, User
       can :read, RequestAttachment
       can :create, RequestAttachment
       can :update, RequestAttachment, :user_id => user.id
@@ -19,6 +22,8 @@ class Ability
       can :update, Comment, :user_id => user.id
       can :destroy, Comment, :user_id => user.id
       can :read, Template
+
+      can :manage, PublicationRequest
     end
 
     can :manage, :all if user.has_role? :admin
