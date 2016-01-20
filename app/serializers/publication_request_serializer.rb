@@ -12,4 +12,16 @@ class PublicationRequestSerializer < ActiveModel::Serializer
   has_many :request_attachments
   belongs_to :template
 
+  class CommentSerializer < ActiveModel::Serializer
+    attributes :id, :content, :created_at, :updated_at, :user
+
+    def user
+      { id: object.user.id,
+        first_name: object.user.first_name,
+        last_name: object.user.last_name,
+        email: object.user.email
+      }
+    end
+  end
+
 end
