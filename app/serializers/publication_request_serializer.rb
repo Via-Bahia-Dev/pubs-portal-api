@@ -24,4 +24,39 @@ class PublicationRequestSerializer < ActiveModel::Serializer
     end
   end
 
+  class RequestAttachmentSerializer < ActiveModel::Serializer
+    attributes :id, :created_at, :updated_at, :comment, :publication_request_id,
+                :file_file_name, :file_file_size, :file_content_type, 
+                :file_original, :file_large, :file_medium, :file_small, :file_thumb, 
+                :user
+
+    def file_original
+      object.file.url
+    end
+
+    def file_large
+      object.file.url(:large)
+    end
+
+    def file_medium
+      object.file.url(:medium)
+    end
+
+    def file_small
+      object.file.url(:small)
+    end
+
+    def file_thumb
+      object.file.url(:thumb)
+    end
+
+    def user
+      { id: object.user.id,
+        first_name: object.user.first_name,
+        last_name: object.user.last_name,
+        email: object.user.email
+      }
+    end
+  end
+
 end
