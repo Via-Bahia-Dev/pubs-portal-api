@@ -11,6 +11,8 @@ class RequestAttachment < ActiveRecord::Base
 
 	validates_presence_of :publication_request_id
 	validates_presence_of :user_id
+
+	default_scope { order(created_at: :desc) }
 	
 	def check_file_type
 		if is_image_type?
