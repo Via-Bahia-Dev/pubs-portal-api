@@ -1,7 +1,7 @@
 class RequestAttachmentSerializer < ActiveModel::Serializer
   attributes :id, :created_at, :updated_at, :comment, :publication_request_id,
   								:file_file_name, :file_file_size, :file_content_type,
-                  :file_original, :file_large, :file_medium, :file_small, :file_thumb
+                  :file_original, :file_large, :file_medium, :file_small, :file_large_thumb, :file_thumb
 
   belongs_to :user
 
@@ -19,6 +19,10 @@ class RequestAttachmentSerializer < ActiveModel::Serializer
 
   def file_small
   	object.file.url(:small)
+  end
+
+  def file_large_thumb
+    object.file.url(:large_thumb)
   end
 
   def file_thumb
