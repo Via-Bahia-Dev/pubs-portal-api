@@ -59,6 +59,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rspec-rails', '~> 3.0'
+  gem 'rspec_junit'
 end
 
 group :test do

@@ -133,6 +133,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -150,6 +154,9 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    rspec_junit (4.0.4)
+      builder (>= 3.2.2)
+      rspec (>= 3.3.0)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -202,6 +209,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-api
   rspec-rails (~> 3.0)
+  rspec_junit
   sdoc (~> 0.4.0)
   shoulda-matchers (~> 2.5.0)
   spring
@@ -209,3 +217,6 @@ DEPENDENCIES
   tzinfo-data
   warden
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.4
