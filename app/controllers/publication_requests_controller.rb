@@ -7,7 +7,7 @@ class PublicationRequestsController < ApplicationController
     @publication_request.user_id = current_user.id
 
     if @publication_request.status.nil?
-      @publication_request.status = "Submitted"
+      @publication_request.status = Status.find_by_name("Submitted")
     end
 
     if @publication_request.save
