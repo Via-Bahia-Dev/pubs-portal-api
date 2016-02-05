@@ -14,7 +14,7 @@ RSpec.describe RequestAttachmentsController, type: :controller do
   it_behaves_like "authenticated_api_controller"
 
   let(:user) { User.create(email: "user2@email.com", password: "af3714ff0ffae", first_name: "user2", last_name: "test") }
-
+  let(:status) { Status.create(name: "Status 1", color: 0, order: 1) }
   let(:pr) { PublicationRequest.create(event: "Test Event 2015",
                                        description: "Awesome test event this weekend.",
                                        rough_date: "Mon, 17 Dec 2015 00:00:00 +0000",
@@ -25,7 +25,7 @@ RSpec.describe RequestAttachmentsController, type: :controller do
                                        admin_id: 2,
                                        designer_id: 3,
                                        reviewer_id: 4,
-                                       status: "unassigned" )
+                                       status_id:  status.id)
              }
 
   let(:valid_attributes) {

@@ -13,12 +13,16 @@ RSpec.describe PublicationRequestsController, type: :controller do
   it_behaves_like "api_controller"
   it_behaves_like "authenticated_api_controller"
 
+  let(:status) {
+    Status.create(name: "Status 1", color: 0, order: 1)
+  }
+
   let(:valid_attributes) {
-    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" }
+    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status_id: status.id }
   }
 
   let(:invalid_attributes) {
-    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" }
+    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status_id: status.id }
   }
 
   let!(:publication_request) { PublicationRequest.create(valid_attributes) }
@@ -45,7 +49,7 @@ RSpec.describe PublicationRequestsController, type: :controller do
         }.to change(PublicationRequest, :count).by(1)
       end
 
-      it "assigns a newly created user as @user" do
+      it "assigns a newly created request as @publication_request" do
         post :create, { publication_request: valid_attributes, format: :json  }
         expect(assigns(:publication_request)).to be_a(PublicationRequest)
         expect(assigns(:publication_request)).to be_persisted
