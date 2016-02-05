@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :request_attachments, only: [:show, :update, :destroy]
   resources :comments, only: [:show, :update, :destroy]
 
-
+  resources :statuses, only: [:index, :show, :create, :update, :destroy]
   resources :templates, only: [:index, :show, :create, :update, :destroy]
 
   # This needs to be last!
