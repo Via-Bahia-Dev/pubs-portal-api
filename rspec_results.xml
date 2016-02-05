@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites errors="0" failures="0" skipped="0" tests="22" time="0.870772" timestamp="2016-02-05T12:03:37-08:00">
+  <testsuite location="./spec/support/api_controller.rb:7" name="on GET #show" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="0.20932" location="./spec/support/api_controller.rb:10">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="0.025598" location="./spec/support/api_controller.rb:11">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/api_controller.rb:14" name="on PUT #update" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="0.027096" location="./spec/support/api_controller.rb:17">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="0.029074" location="./spec/support/api_controller.rb:18">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/api_controller.rb:21" name="on DELETE #destroy" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="0.025573" location="./spec/support/api_controller.rb:24">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="0.03693" location="./spec/support/api_controller.rb:25">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/api_controller.rb:32" name="on POST #create" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="0.026068" location="./spec/support/api_controller.rb:35">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="0.027576" location="./spec/support/api_controller.rb:36">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/authenticated_api_controller.rb:5" name="authentication" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="0.046133" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="StatusesController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="0.021054" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/statuses_controller_spec.rb:26" name="GET #index" tests="1" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController GET #index should assign all statuses as @statuses" time="0.052143" location="./spec/controllers/statuses_controller_spec.rb:27">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/statuses_controller_spec.rb:33" name="GET #show" tests="1" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController GET #show should assaign the requested status to @status" time="0.023063" location="./spec/controllers/statuses_controller_spec.rb:34">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/statuses_controller_spec.rb:41" name="with valid params" tests="4" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController POST #create with valid params should create a new Status" time="0.043115" location="./spec/controllers/statuses_controller_spec.rb:42">
+    </testcase>
+    <testcase name="StatusesController POST #create with valid params should assign a newly created status as @status" time="0.031748" location="./spec/controllers/statuses_controller_spec.rb:48">
+    </testcase>
+    <testcase name="StatusesController PUT #update with valid params updates the requested status" time="0.02858" location="./spec/controllers/statuses_controller_spec.rb:74">
+    </testcase>
+    <testcase name="StatusesController PUT #update with valid params assigns the requested status as @status" time="0.027734" location="./spec/controllers/statuses_controller_spec.rb:80">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/statuses_controller_spec.rb:55" name="with invalid params" tests="4" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController POST #create with invalid params assigns a newly created but unsaved status as @status" time="0.038104" location="./spec/controllers/statuses_controller_spec.rb:56">
+    </testcase>
+    <testcase name="StatusesController POST #create with invalid params returns unprocessable_entity status" time="0.026071" location="./spec/controllers/statuses_controller_spec.rb:61">
+    </testcase>
+    <testcase name="StatusesController PUT #update with invalid params assigns the status as @status" time="0.029076" location="./spec/controllers/statuses_controller_spec.rb:88">
+    </testcase>
+    <testcase name="StatusesController PUT #update with invalid params returns unprocessable_entity status" time="0.026068" location="./spec/controllers/statuses_controller_spec.rb:93">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/statuses_controller_spec.rb:100" name="DELETE #destroy" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="StatusesController DELETE #destroy destroys the requested status" time="0.035103" location="./spec/controllers/statuses_controller_spec.rb:101">
+    </testcase>
+    <testcase name="StatusesController DELETE #destroy redirects to the statuses list" time="0.027073" location="./spec/controllers/statuses_controller_spec.rb:107">
+    </testcase>
+  </testsuite>
+</testsuites>

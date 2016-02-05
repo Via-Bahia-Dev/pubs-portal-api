@@ -7,9 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 (1..5).each do |num|
-	user = User.create({ email: "test#{num}@test.com", password: "asdfasdf", first_name: "Test", last_name: "#{num}" })
+	user = User.find_or_initialize_by({ email: "test#{num}@test.com", first_name: "Test", last_name: "#{num}" })
 	user.add_roles([User.ROLES[num-1]])
+	user.password = "asdfasdf",
+	user.save!
 end
+
+Status.find_or_create_by({name: "Open",        color: "337ab7".to_i(16), order: 1})
+Status.find_or_create_by({name: "In Progress", color: "5bc0de".to_i(16), order: 2})
+Status.find_or_create_by({name: "To Review",   color: "f0ad4e".to_i(16), order: 3})
+Status.find_or_create_by({name: "Done",        color: "5cb85c".to_i(16), order: 4})
 
 # (1..5).each do |i|
 # 	PublicationRequest.create(event: "Test Event #{2015+i}", description: "Awesome test event this weekend.",  rough_date: "Mon, #{17+i} Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: i, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "In Progress")
@@ -17,11 +24,11 @@ end
 
 # (1..5).each do |i|
 # 	Template.create(name: "Test Template #{i}", user_id: i,  dimensions: "5x#{i+1}" )
-# end		
+# end
 
 # (1..5).each do |i|
 # 	Comment.create(user_id: i, publication_request_id: i, content: "This is test comment #{i}." )
-# end	
+# end
 
 # (1..5).each do |i|
 # 	RequestAttachment.create(publication_request_id: i, file: File.new(Rails.root + 'app/assets/images/test-image.jpg'), user_id: i )

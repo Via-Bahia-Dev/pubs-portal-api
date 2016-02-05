@@ -7,7 +7,7 @@ class PublicationRequestsController < ApplicationController
     @publication_request.user_id = current_user.id
 
     if @publication_request.status.nil?
-      @publication_request.status = "Submitted"
+      @publication_request.status = Status.find_by_name("Submitted")
     end
 
     if @publication_request.save
@@ -42,7 +42,7 @@ class PublicationRequestsController < ApplicationController
   private
 
   def publication_request_params
-    params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date, :admin_id, :reviewer_id, :designer_id, :status, :template_id)
+    params.require(:publication_request).permit(:event, :description, :dimensions, :rough_date, :due_date, :event_date, :admin_id, :reviewer_id, :designer_id, :status_id, :template_id)
   end
 
 end

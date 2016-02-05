@@ -8,7 +8,8 @@ RSpec.describe CommentsController, type: :controller do
     authentication_token = AuthenticationToken.create(user_id: user.id, body: "token", last_used_at: DateTime.current)
     request.env["HTTP_X_USER_EMAIL"] = user.email
     request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
-    PublicationRequest.create(event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "unassigned" )
+    Status.create(name: "Status 1", color: 0, order: 1)
+    PublicationRequest.create(event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status_id: 1)
   end
 
   it_behaves_like "publication_request_api_controller"
