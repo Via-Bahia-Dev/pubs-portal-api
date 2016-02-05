@@ -13,10 +13,10 @@
 	user.save!
 end
 
-Status.find_or_create_by({name: "Open"})
-Status.find_or_create_by({name: "In Progress"})
-Status.find_or_create_by({name: "To Review"})
-Status.find_or_create_by({name: "Done"})
+Status.find_or_create_by({name: "Open",        color: "337ab7".to_i(16), order: 1})
+Status.find_or_create_by({name: "In Progress", color: "5bc0de".to_i(16), order: 2})
+Status.find_or_create_by({name: "To Review",   color: "f0ad4e".to_i(16), order: 3})
+Status.find_or_create_by({name: "Done",        color: "5cb85c".to_i(16), order: 4})
 
 # (1..5).each do |i|
 # 	PublicationRequest.create(event: "Test Event #{2015+i}", description: "Awesome test event this weekend.",  rough_date: "Mon, #{17+i} Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: i, admin_id: 2, designer_id: 3, reviewer_id: 4, status: "In Progress")
