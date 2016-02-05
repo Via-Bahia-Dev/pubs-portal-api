@@ -13,7 +13,7 @@
 	user.save!
 end
 
-Status.find_or_create_by({name: "Submitted"})
+Status.find_or_create_by({name: "Open"})
 Status.find_or_create_by({name: "In Progress"})
 Status.find_or_create_by({name: "To Review"})
 Status.find_or_create_by({name: "Done"})
