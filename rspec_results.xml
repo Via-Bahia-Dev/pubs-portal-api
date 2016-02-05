@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites errors="0" failures="0" skipped="0" tests="6" time="0.044106" timestamp="2016-02-05T09:24:49-08:00">
+  <testsuite location="./spec/models/status_spec.rb:5" name="db structure" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="Status db structure should have db column named name of type string" time="0.008984" location="./spec/models/status_spec.rb:6">
+    </testcase>
+    <testcase name="Status db structure should have db column named color of type integer" time="0.001004" location="./spec/models/status_spec.rb:7">
+    </testcase>
+    <testcase name="Status db structure should have db column named order of type integer" time="0.001002" location="./spec/models/status_spec.rb:8">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/models/status_spec.rb:11" name="validations" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="Status validations should require name to be set" time="0.020053" location="./spec/models/status_spec.rb:12">
+    </testcase>
+    <testcase name="Status validations should require color to be set" time="0.005045" location="./spec/models/status_spec.rb:13">
+    </testcase>
+    <testcase name="Status validations should require order to be set" time="0.00504" location="./spec/models/status_spec.rb:14">
+    </testcase>
+  </testsuite>
+</testsuites>
