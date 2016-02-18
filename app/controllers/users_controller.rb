@@ -50,10 +50,27 @@ class UsersController < ApplicationController
     render json: { data: serialized_objects(@users) }
   end
 
+  def update_password
+    @change_password = ChangePassword.new(@user)
+    if @change_password.submit(user_password_params)
+      head :no_content
+    else
+      render json: { errors: @change_password.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def reset_password
+
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
     end
+
+    def user_password_params
+			params.require(:user).permit(:current_password, :password, :password_confirmation)
+		end
 
     def users_with_role(role)
       users = []

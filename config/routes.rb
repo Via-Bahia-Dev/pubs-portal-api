@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get 'designers'
       get 'reviewers'
     end
+    member do
+      put 'update_password'
+      put 'reset_password'
+    end
   end
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do
     resources :request_attachments, only: [:index, :create]
