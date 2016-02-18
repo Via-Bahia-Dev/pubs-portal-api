@@ -10,6 +10,7 @@ class Ability
       can :destroy, :session # users can sign out
       can :show, User, :id => user.id # users can view their own profile
       can :update, User, :id => user.id # users can update their own profile
+      can :update_password, User, :id => user.id # users can change their own password
       can :admins, User
       can :reviewers, User
       can :designers, User

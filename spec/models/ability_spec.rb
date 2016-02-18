@@ -12,11 +12,11 @@ RSpec.describe Ability, type: :model do
 				due_date: "Mon, 17 Dec 2015 00:00:00 +0000",
 				event_date: "Mon, 17 Dec 2015 00:00:00 +0000" ,
 				dimensions: "quarter",
-				user_id: user.id) 
+				user_id: user.id)
 			}
 
 			let(:attachment) {
-				RequestAttachment.create(publication_request_id: pr.id, 
+				RequestAttachment.create(publication_request_id: pr.id,
 					file: File.new(Rails.root + 'app/assets/images/test-image.jpg'),
 					user_id: user.id )
 			}
@@ -37,10 +37,13 @@ RSpec.describe Ability, type: :model do
 				# User
 				it { should_not be_able_to(:create, User) }
 				it { should_not be_able_to(:index, User) }
+				it { should_not be_able_to(:show, User.new) }
 				it { should     be_able_to(:show, user) }
 				it { should_not be_able_to(:update, User.new) }
 				it { should     be_able_to(:update, user)}
 				it { should_not be_able_to(:delete, User) }
+				it { should_not be_able_to(:update_password, User.new) }
+				it { should     be_able_to(:update_password, user) }
 
 				# Request Attachment
 				it { should     be_able_to(:read, RequestAttachment) }
@@ -70,13 +73,13 @@ RSpec.describe Ability, type: :model do
 				it "can read requests that they are a designer for" do
 					user.roles = [:designer, :user]
 					should_not be_able_to(:read, PublicationRequest.new)
-					should     be_able_to(:read, PublicationRequest.new(designer_id: user.id)) 
+					should     be_able_to(:read, PublicationRequest.new(designer_id: user.id))
 				end
 
 				it "can design requests that they are a designer for" do
 					user.roles = [:designer, :user]
 					should_not be_able_to(:design, PublicationRequest.new)
-					should     be_able_to(:design, PublicationRequest.new(designer_id: user.id)) 
+					should     be_able_to(:design, PublicationRequest.new(designer_id: user.id))
 				end
 			end
 
