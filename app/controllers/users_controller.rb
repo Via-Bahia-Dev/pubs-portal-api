@@ -60,26 +60,23 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
+
+  def user_params
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
+  end
+
+  def user_password_params
+    params.require(:user).permit(:current_password, :password, :password_confirmation)
+  end
+
+  def users_with_role(role)
+    users = []
+    User.all.each do |user|
+      users << user if user.has_role?(role)
     end
-
-    def user_password_params
-			params.require(:user).permit(:current_password, :password, :password_confirmation)
-		end
-
-    def users_with_role(role)
-      users = []
-      User.all.each do |user|
-        if user.has_role?(role)
-          users << user
-        end
-      end
-      return users
-    end
-
+    users
+  end
 end
