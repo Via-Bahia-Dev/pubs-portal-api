@@ -5,10 +5,10 @@ class PasswordResetsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     user.send_password_reset if user
+    head :no_content
   end
 
   def update
-    byebug
     @user = User.find_by_password_reset_token!(params[:id])
     if @user.password_reset_sent_at < 2.hours.ago
       render json: { errors: { password_reset_token: "has expired"} }, status: :unprocessable_entity
