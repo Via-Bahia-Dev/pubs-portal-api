@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+    @user.send_password_reset
   end
 
   private

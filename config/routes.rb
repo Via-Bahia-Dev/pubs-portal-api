@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       put 'reset_password'
     end
   end
+  resources :password_resets
+
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do
     resources :request_attachments, only: [:index, :create]
     resources :comments, only: [:index, :create]
