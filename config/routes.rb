@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
-  resources :users, only: [:index, :show, :create, :update, :destroy] do
+  resources :users, only: [:index, :create, :update, :destroy] do
     collection do
       get 'admins'
       get 'designers'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       put 'reset_password'
     end
   end
+  get 'users/show/(:id)' => "users#show"
   resources :password_resets
 
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do

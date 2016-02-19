@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if user_params
+      @user = User.find_by(user_params)
+    end
     render json: { data: serialized_objects(@user) }
   end
 
