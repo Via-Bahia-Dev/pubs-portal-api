@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     end
     member do
       put 'update_password'
-      put 'reset_password'
     end
   end
   get 'users/show/(:id)' => "users#show"
