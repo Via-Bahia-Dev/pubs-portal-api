@@ -11,5 +11,5 @@ RSpec.describe UsersController, type: :routing do
   it { expect(get:    "/users/designers").to route_to("users#designers") }
   it { expect(get:    "/users/reviewers").to route_to("users#reviewers") }
 
-  it { expect(put:    "/users/update_password").to route_to("users#update_password") }
+  it { expect(put:    "/users/1/update_password").to route_to("users#update_password", id: "1") }
 end
