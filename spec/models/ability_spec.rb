@@ -100,6 +100,8 @@ RSpec.describe Ability, type: :model do
 			context "when is anonymous" do
 				let(:user) { nil }
 				it { should be_able_to(:create, :session) }
+				it { should be_able_to(:create, :password_reset) }
+				it { should be_able_to(:update, :password_reset) }
 				it { should_not be_able_to(:create, User) }
 				it { should_not be_able_to(:read,   User) }
 				it { should_not be_able_to(:update, User) }

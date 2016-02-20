@@ -4,7 +4,11 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    can :create, :session if user.roles == []
+    if user.roles == []
+      can :create, :session
+      can :create, :password_reset
+      can :update, :password_reset
+    end
 
     if user.has_role? :user
       can :destroy, :session # users can sign out

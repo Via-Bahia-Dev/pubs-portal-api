@@ -13,6 +13,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:roles_mask).of_type(:integer) }
+    it { is_expected.to have_db_column(:password_reset_token).of_type(:string) }
+    it { is_expected.to have_db_column(:password_reset_sent_at).of_type(:datetime) }
 
     it { is_expected.to have_db_index(:email) }
   end
@@ -37,7 +39,7 @@ RSpec.describe User, type: :model do
 
   describe "secure password" do
     it { is_expected.to have_secure_password }
-    # it { is_expected.to validate_length_of(:password) } 
+    # it { is_expected.to validate_length_of(:password) }
 
     it { expect(User.new({ email: "user@email.com", password: nil, first_name: "user", last_name: "test" }).save).to be_falsey }
     it { expect(User.new({ email: "user@email.com", password: "foo", first_name: "user", last_name: "test" }).save).to be_falsey }
@@ -94,6 +96,21 @@ RSpec.describe User, type: :model do
 
       user.roles = [:garbage]
       expect(user.roles).to eq([])
+    end
+  end
+
+  describe "sending password reset" do
+    it "should get a password reset token for the user" do
+      user.send_password_reset
+      expect(user.password_reset_token).to_not be_nil
+    end
+    it "should set the password reset sent time" do
+      user.send_password_reset
+      expect(user.password_reset_sent_at).to_not be_nil
+    end
+
+    it "should send an email" do
+      expect { user.send_password_reset }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
   end
 

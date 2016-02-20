@@ -10,11 +10,10 @@ Rails.application.routes.draw do
     end
     member do
       put 'update_password'
-      put 'reset_password'
     end
   end
   get 'users/show/(:id)' => "users#show"
-
+  resources :password_resets, only: [:create, :edit, :update]
 
   resources :publication_requests, only: [:index, :show, :create, :update, :destroy] do
     resources :request_attachments, only: [:index, :create]

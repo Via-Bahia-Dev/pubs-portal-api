@@ -62,14 +62,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def reset_password
-
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :roles_mask)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :roles_mask, :password_reset_token)
   end
 
   def user_password_params
