@@ -3,8 +3,8 @@ class PasswordResetsController < ApplicationController
 	authorize_resource :class => false
 
   def create
-    user = User.find_by_email(params[:email])
-    user.send_password_reset if user
+    @user = User.find_by_email(params[:email])
+    @user.send_password_reset if @user
     head :no_content
   end
 
