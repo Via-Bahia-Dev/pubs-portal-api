@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if user_params
+    if params.include? :user
       @user = User.find_by(user_params)
     end
     render json: { data: serialized_objects(@user) }
