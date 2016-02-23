@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>
+      A Publication Request for <strong><%= "#{@request.event}" %></strong> has been created and you have been assigned as the <strong><%= "#{@user_role}"%></strong>.
+    </p>
+    <p>
+      You can access the request here: <%= publication_request_url(@request) %>. You can comment, ask questions, and upload files there.
+      <% if @email_for == :designer %>
+        Once you believe your work is done, please move the request to To Review and the assigned reviewer will review your work.
+      <% elsif @email_for == :reviewer %>
+        Once the request has been set as ready to be reviewed, you will be notified and you must review the request and indicate whether it is complete or more work needs to be done.
+      <% end %>
+    </p>
+  </body>
+</html>
