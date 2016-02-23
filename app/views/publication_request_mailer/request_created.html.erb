@@ -6,7 +6,7 @@
   </head>
   <body>
     <p>
-      A Publication Request for <strong><%= "#{@request.event}" %></strong> has been created and you have been assigned as the <strong><%= "#{@email_for}"%></strong>.
+      A Publication Request for <strong><%= "#{@request.event}" %></strong> has been created and you have been assigned as the <strong><%= "#{@user_role}"%></strong>.
     </p>
     <p>
       You can access the request here: <%= publication_request_url(@request) %>. You can comment, ask questions, and upload files there.

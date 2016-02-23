@@ -1,19 +1,10 @@
 class PublicationRequestMailer < ApplicationMailer
 
-  def request_created_designer(request)
-    @email_for = :designer
+  def request_created(request, user_role)
+    @user_role = user_role
     @request = request
-    mail(to: @designer.email,
-         subject: "Publication Request for #{request.event} assigned to you as designer",
-         template_name: 'request_created')
-
-  end
-
-  def request_created_reviewer(request)
-    @email_for = :reviewer
-    @request = request
-    mail(to: @reviewer.email,
-         subject: "Publication Request for #{request.event} assigned to you as reviewer",
+    mail(to: User.find(@request.attributes["#{user_role}_id"]).email,
+         subject: "Publication Request for #{request.event} assigned to you as #{user_role}",
          template_name: 'request_created')
   end
 end
