@@ -13,16 +13,18 @@ RSpec.describe PublicationRequestsController, type: :controller do
   it_behaves_like "api_controller"
   it_behaves_like "authenticated_api_controller"
 
+  let(:user) { User.first }
+
   let(:status) {
     Status.create(name: "Status 1", color: 0, order: 1)
   }
 
   let(:valid_attributes) {
-    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status_id: status.id }
+    { event: "Test Event 2015", description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: user.id, reviewer_id: user.id, status_id: status.id }
   }
 
   let(:invalid_attributes) {
-    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: 3, reviewer_id: 4, status_id: status.id }
+    { event: nil, description: "Awesome test event this weekend.",  rough_date: "Mon, 17 Dec 2015 00:00:00 +0000", due_date: "Mon, 17 Dec 2015 00:00:00 +0000", event_date: "Mon, 17 Dec 2015 00:00:00 +0000", dimensions: "quarter", user_id: 1, admin_id: 2, designer_id: user.id, reviewer_id: user.id, status_id: status.id }
   }
 
   let!(:publication_request) { PublicationRequest.create(valid_attributes) }
@@ -54,6 +56,12 @@ RSpec.describe PublicationRequestsController, type: :controller do
         expect(assigns(:publication_request)).to be_a(PublicationRequest)
         expect(assigns(:publication_request)).to be_persisted
       end
+
+      it "should send 2 emails" do
+        expect {
+          post :create, { publication_request: valid_attributes, format: :json  }
+        }.to change { ActionMailer::Base.deliveries.count }.by(2)
+      end
     end
 
     context "with invalid params" do
@@ -65,6 +73,12 @@ RSpec.describe PublicationRequestsController, type: :controller do
       it "returns unprocessable_entity status" do
         put :create, { publication_request: invalid_attributes }
         expect(response.status).to eq(422)
+      end
+
+      it "should not send any emails" do
+        expect {
+          post :create, { publication_request: invalid_attributes, format: :json  }
+        }.to change { ActionMailer::Base.deliveries.count }.by(0)
       end
     end
   end
