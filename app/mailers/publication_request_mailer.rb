@@ -2,7 +2,6 @@ class PublicationRequestMailer < ApplicationMailer
 
   def request_created_designer(request)
     @email_for = :designer
-    @designer = request.designer
     @request = request
     mail(to: @designer.email,
          subject: "Publication Request for #{request.event} assigned to you as designer",
@@ -12,9 +11,7 @@ class PublicationRequestMailer < ApplicationMailer
 
   def request_created_reviewer(request)
     @email_for = :reviewer
-    @reviewer = request.reviewer
     @request = request
-
     mail(to: @reviewer.email,
          subject: "Publication Request for #{request.event} assigned to you as reviewer",
          template_name: 'request_created')
