@@ -23,7 +23,7 @@ RSpec.describe UsersController, type: :controller do
   }
 
   let!(:user) { User.create(valid_attributes) }
-
+  
   describe "GET #index" do
     it "assigns all users as @users" do
       get :index, { format: :json }
@@ -34,6 +34,11 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #show" do
     it "assigns the requested user as @user" do
       get :show, { id: user.id, format: :json }
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it "works with user_params too" do
+      get :show, { user: { email: user.email }, format: :json }
       expect(assigns(:user)).to eq(user)
     end
   end
