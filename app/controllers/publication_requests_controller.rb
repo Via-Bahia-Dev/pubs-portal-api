@@ -11,8 +11,8 @@ class PublicationRequestsController < ApplicationController
     end
 
     if @publication_request.save
-      PublicationRequestMailer.request_created(@publication_request, :designer).deliver_later
-      PublicationRequestMailer.request_created(@publication_request, :reviewer).deliver_later
+      PublicationRequestMailer.request_created(@publication_request, "designer").deliver_later
+      PublicationRequestMailer.request_created(@publication_request, "reviewer").deliver_later
       render json: { data: serialized_objects(@publication_request) }, status: :created
     else
       render json: { errors: @publication_request.errors }, status: :unprocessable_entity
