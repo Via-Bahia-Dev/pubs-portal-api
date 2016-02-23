@@ -27,8 +27,9 @@ class Ability
       can :update, Comment, :user_id => user.id
       can :destroy, Comment, :user_id => user.id
       can :read, Template
-
+      can :read, Status
       can :read, PublicationRequest, :user_id => user.id
+      can :create, PublicationRequest
     end
 
     if user.has_role? :designer
