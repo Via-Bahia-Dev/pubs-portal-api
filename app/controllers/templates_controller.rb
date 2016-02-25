@@ -3,7 +3,6 @@ class TemplatesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @templates = Template.all
     render json: { data: serialized_objects(@templates) }
   end
 

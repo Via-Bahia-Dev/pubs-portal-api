@@ -64,9 +64,13 @@ RSpec.describe Ability, type: :model do
 				# Templates
 				it { should     be_able_to(:read, Template) }
 
+				#Statuses
+				it { should     be_able_to(:read, Status) }
+
 				#Publication Requests
 				it { should_not be_able_to(:read, PublicationRequest.new) }
 				it { should     be_able_to(:read, PublicationRequest.new(user_id: user.id)) }
+				it { should     be_able_to(:create, PublicationRequest) }
 			end
 
 			context "when is a designer" do

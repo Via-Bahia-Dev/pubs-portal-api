@@ -1,22 +1,385 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites errors="0" failures="0" skipped="0" tests="8" time="0.031256" timestamp="2016-02-18T16:27:49-08:00">
-  <testsuite location="./spec/routing/users_routing_spec.rb:3" name="UsersController" tests="8" errors="0" failures="0" skipped="0">
+<testsuites errors="0" failures="0" skipped="0" tests="161" time="110.085548" timestamp="2016-02-25T00:38:41-08:00">
+  <testsuite location="./spec/support/publication_request_api_controller.rb:10" name="on GET #show" tests="12" errors="0" failures="0" skipped="0">
     <properties/>
-    <testcase name="UsersController should route {:get=&gt;&quot;/users&quot;} to {:controller=&gt;&quot;users&quot;, :action=&gt;&quot;index&quot;}" time="0.015631" location="./spec/routing/users_routing_spec.rb:4">
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="0.29263" location="./spec/support/publication_request_api_controller.rb:13">
     </testcase>
-    <testcase name="UsersController should route {:get=&gt;&quot;/users/show/1&quot;} to {:id=&gt;&quot;1&quot;, :controller=&gt;&quot;users&quot;, :action=&gt;&quot;show&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:5">
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="0.035093" location="./spec/support/publication_request_api_controller.rb:14">
     </testcase>
-    <testcase name="UsersController should route {:post=&gt;&quot;/users&quot;} to {:controller=&gt;&quot;users&quot;, :action=&gt;&quot;create&quot;}" time="0.015625" location="./spec/routing/users_routing_spec.rb:6">
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="0.032087" location="./spec/support/api_controller.rb:10">
     </testcase>
-    <testcase name="UsersController should route {:put=&gt;&quot;/users/1&quot;} to {:id=&gt;&quot;1&quot;, :controller=&gt;&quot;users&quot;, :action=&gt;&quot;update&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:7">
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="0.028579" location="./spec/support/api_controller.rb:11">
     </testcase>
-    <testcase name="UsersController should route {:delete=&gt;&quot;/users/1&quot;} to {:id=&gt;&quot;1&quot;, :controller=&gt;&quot;users&quot;, :action=&gt;&quot;destroy&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:8">
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="1.963464" location="./spec/support/publication_request_api_controller.rb:13">
     </testcase>
-    <testcase name="UsersController should route {:get=&gt;&quot;/users/admins&quot;} to {:controller=&gt;&quot;users&quot;, :action=&gt;&quot;admins&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:10">
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="1.593212" location="./spec/support/publication_request_api_controller.rb:14">
     </testcase>
-    <testcase name="UsersController should route {:get=&gt;&quot;/users/designers&quot;} to {:controller=&gt;&quot;users&quot;, :action=&gt;&quot;designers&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:11">
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="0.02708" location="./spec/support/api_controller.rb:10">
     </testcase>
-    <testcase name="UsersController should route {:get=&gt;&quot;/users/reviewers&quot;} to {:controller=&gt;&quot;users&quot;, :action=&gt;&quot;reviewers&quot;}" time="0.0" location="./spec/routing/users_routing_spec.rb:12">
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="0.03008" location="./spec/support/api_controller.rb:11">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="2.412721" location="./spec/support/api_controller.rb:10">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="2.1255" location="./spec/support/api_controller.rb:11">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should eq 404" time="0.041107" location="./spec/support/api_controller.rb:10">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on GET #show should be blank" time="0.029581" location="./spec/support/api_controller.rb:11">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/publication_request_api_controller.rb:17" name="on PUT #update" tests="12" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="0.033834" location="./spec/support/publication_request_api_controller.rb:20">
+    </testcase>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="0.045159" location="./spec/support/publication_request_api_controller.rb:21">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="0.028076" location="./spec/support/api_controller.rb:17">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="0.027083" location="./spec/support/api_controller.rb:18">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="1.671252" location="./spec/support/publication_request_api_controller.rb:20">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="1.955113" location="./spec/support/publication_request_api_controller.rb:21">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="0.030082" location="./spec/support/api_controller.rb:17">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="0.027081" location="./spec/support/api_controller.rb:18">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="1.792144" location="./spec/support/api_controller.rb:17">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="1.937451" location="./spec/support/api_controller.rb:18">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should eq 404" time="0.028049" location="./spec/support/api_controller.rb:17">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on PUT #update should be blank" time="0.027073" location="./spec/support/api_controller.rb:18">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/publication_request_api_controller.rb:24" name="on DELETE #destroy" tests="12" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="0.033591" location="./spec/support/publication_request_api_controller.rb:27">
+    </testcase>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="0.035396" location="./spec/support/publication_request_api_controller.rb:28">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="0.027103" location="./spec/support/api_controller.rb:24">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="0.02707" location="./spec/support/api_controller.rb:25">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="1.846962" location="./spec/support/publication_request_api_controller.rb:27">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="1.655408" location="./spec/support/publication_request_api_controller.rb:28">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="0.029244" location="./spec/support/api_controller.rb:24">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="0.028076" location="./spec/support/api_controller.rb:25">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="1.961268" location="./spec/support/api_controller.rb:24">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="1.722319" location="./spec/support/api_controller.rb:25">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should eq 404" time="0.030082" location="./spec/support/api_controller.rb:24">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActiveRecord::RecordNotFound on DELETE #destroy should be blank" time="0.03061" location="./spec/support/api_controller.rb:25">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/publication_request_api_controller.rb:35" name="on POST #create" tests="12" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="0.036095" location="./spec/support/publication_request_api_controller.rb:38">
+    </testcase>
+    <testcase name="CommentsController behaves like publication_request_api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="0.03259" location="./spec/support/publication_request_api_controller.rb:39">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="0.030082" location="./spec/support/api_controller.rb:35">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="0.031128" location="./spec/support/api_controller.rb:36">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="1.554694" location="./spec/support/publication_request_api_controller.rb:38">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like publication_request_api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="1.704447" location="./spec/support/publication_request_api_controller.rb:39">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="0.027072" location="./spec/support/api_controller.rb:35">
+    </testcase>
+    <testcase name="StatusesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="0.023064" location="./spec/support/api_controller.rb:36">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="1.690545" location="./spec/support/api_controller.rb:35">
+    </testcase>
+    <testcase name="TemplatesController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="1.86979" location="./spec/support/api_controller.rb:36">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should eq 422" time="0.030081" location="./spec/support/api_controller.rb:35">
+    </testcase>
+    <testcase name="UsersController behaves like api_controller rescues from ActionController::ParameterMissing on POST #create should match /error/" time="0.031082" location="./spec/support/api_controller.rb:36">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/support/authenticated_api_controller.rb:5" name="authentication" tests="12" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="0.05218" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="CommentsController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="0.031123" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="0.022383" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="PublicationRequestsController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="0.028072" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="1.795766" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="RequestAttachmentsController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="1.774126" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+    <testcase name="StatusesController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="0.019051" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="StatusesController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="0.023061" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+    <testcase name="TemplatesController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="1.638486" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="TemplatesController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="1.774015" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+    <testcase name="UsersController behaves like authenticated_api_controller authentication returns unauthorized request without email and token" time="0.021061" location="./spec/support/authenticated_api_controller.rb:6">
+    </testcase>
+    <testcase name="UsersController behaves like authenticated_api_controller authentication returns unauthorized request without token" time="0.026205" location="./spec/support/authenticated_api_controller.rb:14">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/comments_controller_spec.rb:29" name="GET #show" tests="7" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController GET #show assigns the comment as @comment" time="0.099228" location="./spec/controllers/comments_controller_spec.rb:30">
+    </testcase>
+    <testcase name="PublicationRequestsController GET #show assigns the publication_request as @publication_request" time="0.133394" location="./spec/controllers/publication_requests_controller_spec.rb:33">
+    </testcase>
+    <testcase name="RequestAttachmentsController GET #show assigns the request_attachment as @request_attachment" time="2.036324" location="./spec/controllers/request_attachments_controller_spec.rb:49">
+    </testcase>
+    <testcase name="StatusesController GET #show should assaign the requested status to @status" time="0.027019" location="./spec/controllers/statuses_controller_spec.rb:34">
+    </testcase>
+    <testcase name="TemplatesController GET #show assigns the template as @template" time="1.897676" location="./spec/controllers/templates_controller_spec.rb:27">
+    </testcase>
+    <testcase name="UsersController GET #show assigns the requested user as @user" time="0.032088" location="./spec/controllers/users_controller_spec.rb:36">
+    </testcase>
+    <testcase name="UsersController GET #show works with user_params too" time="0.031086" location="./spec/controllers/users_controller_spec.rb:41">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/comments_controller_spec.rb:36" name="GET #index" tests="6" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController GET #index assigns all comments as @comments" time="0.039145" location="./spec/controllers/comments_controller_spec.rb:37">
+    </testcase>
+    <testcase name="PublicationRequestsController GET #index assigns all publication_requests as @publication_requests" time="0.048134" location="./spec/controllers/publication_requests_controller_spec.rb:40">
+    </testcase>
+    <testcase name="RequestAttachmentsController GET #index assigns all request_attachments as @request_attachments" time="2.313558" location="./spec/controllers/request_attachments_controller_spec.rb:42">
+    </testcase>
+    <testcase name="StatusesController GET #index should assign all statuses as @statuses" time="0.028075" location="./spec/controllers/statuses_controller_spec.rb:27">
+    </testcase>
+    <testcase name="TemplatesController GET #index assigns all templates as @templates" time="1.972572" location="./spec/controllers/templates_controller_spec.rb:34">
+    </testcase>
+    <testcase name="UsersController GET #index assigns all users as @users" time="0.029064" location="./spec/controllers/users_controller_spec.rb:29">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/comments_controller_spec.rb:44" name="with valid params" tests="25" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController POST #create with valid params creates a new Comment" time="0.075725" location="./spec/controllers/comments_controller_spec.rb:45">
+    </testcase>
+    <testcase name="CommentsController POST #create with valid params assigns a newly created comment as @comment" time="0.03834" location="./spec/controllers/comments_controller_spec.rb:51">
+    </testcase>
+    <testcase name="CommentsController PUT #update with valid params updates the requested comment" time="0.03409" location="./spec/controllers/comments_controller_spec.rb:77">
+    </testcase>
+    <testcase name="CommentsController PUT #update with valid params assigns the requested comment as @comment" time="0.032091" location="./spec/controllers/comments_controller_spec.rb:85">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with valid params creates a new PublicationRequest" time="0.282193" location="./spec/controllers/publication_requests_controller_spec.rb:48">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with valid params assigns a newly created request as @publication_request" time="0.082763" location="./spec/controllers/publication_requests_controller_spec.rb:54">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with valid params should send 2 emails" time="0.082344" location="./spec/controllers/publication_requests_controller_spec.rb:60">
+    </testcase>
+    <testcase name="PublicationRequestsController PUT #update with valid params updates the requested publication_request" time="0.034715" location="./spec/controllers/publication_requests_controller_spec.rb:92">
+    </testcase>
+    <testcase name="PublicationRequestsController PUT #update with valid params assigns the requested publication_request as @publication_request" time="0.034147" location="./spec/controllers/publication_requests_controller_spec.rb:100">
+    </testcase>
+    <testcase name="RequestAttachmentsController POST #create with valid params creates a new RequestAttachment" time="6.343764" location="./spec/controllers/request_attachments_controller_spec.rb:57">
+    </testcase>
+    <testcase name="RequestAttachmentsController POST #create with valid params assigns a newly created attachment as @request_attachment" time="5.857878" location="./spec/controllers/request_attachments_controller_spec.rb:63">
+    </testcase>
+    <testcase name="RequestAttachmentsController PUT #update with valid params updates the requested request_attachment" time="2.97886" location="./spec/controllers/request_attachments_controller_spec.rb:89">
+    </testcase>
+    <testcase name="RequestAttachmentsController PUT #update with valid params assigns the requested request_attachment as @request_attachment" time="4.871789" location="./spec/controllers/request_attachments_controller_spec.rb:95">
+    </testcase>
+    <testcase name="StatusesController POST #create with valid params should create a new Status" time="0.030081" location="./spec/controllers/statuses_controller_spec.rb:42">
+    </testcase>
+    <testcase name="StatusesController POST #create with valid params should assign a newly created status as @status" time="0.027072" location="./spec/controllers/statuses_controller_spec.rb:48">
+    </testcase>
+    <testcase name="StatusesController PUT #update with valid params updates the requested status" time="0.039104" location="./spec/controllers/statuses_controller_spec.rb:74">
+    </testcase>
+    <testcase name="StatusesController PUT #update with valid params assigns the requested status as @status" time="0.041119" location="./spec/controllers/statuses_controller_spec.rb:80">
+    </testcase>
+    <testcase name="TemplatesController POST #create with valid params creates a new Template" time="6.438857" location="./spec/controllers/templates_controller_spec.rb:42">
+    </testcase>
+    <testcase name="TemplatesController POST #create with valid params assigns a newly created template as @template" time="4.360908" location="./spec/controllers/templates_controller_spec.rb:48">
+    </testcase>
+    <testcase name="TemplatesController PUT #update with valid params updates the requested template" time="1.729028" location="./spec/controllers/templates_controller_spec.rb:74">
+    </testcase>
+    <testcase name="TemplatesController PUT #update with valid params assigns the requested template as @template" time="4.354659" location="./spec/controllers/templates_controller_spec.rb:81">
+    </testcase>
+    <testcase name="UsersController POST #create with valid params creates a new User" time="0.043116" location="./spec/controllers/users_controller_spec.rb:49">
+    </testcase>
+    <testcase name="UsersController POST #create with valid params assigns a newly created user as @user" time="0.034092" location="./spec/controllers/users_controller_spec.rb:55">
+    </testcase>
+    <testcase name="UsersController PUT #update with valid params updates the requested user" time="0.048124" location="./spec/controllers/users_controller_spec.rb:81">
+    </testcase>
+    <testcase name="UsersController PUT #update with valid params assigns the requested user as @user" time="0.044112" location="./spec/controllers/users_controller_spec.rb:87">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/comments_controller_spec.rb:58" name="with invalid params" tests="25" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController POST #create with invalid params assigns a newly created but unsaved comment as @comment" time="0.043113" location="./spec/controllers/comments_controller_spec.rb:59">
+    </testcase>
+    <testcase name="CommentsController POST #create with invalid params returns unprocessable_entity status" time="0.032976" location="./spec/controllers/comments_controller_spec.rb:64">
+    </testcase>
+    <testcase name="CommentsController PUT #update with invalid params assigns the comment as @comment" time="0.036778" location="./spec/controllers/comments_controller_spec.rb:92">
+    </testcase>
+    <testcase name="CommentsController PUT #update with invalid params returns unprocessable_entity status" time="0.035095" location="./spec/controllers/comments_controller_spec.rb:97">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with invalid params assigns a newly created but unsaved publication_request as @publication_request" time="0.039145" location="./spec/controllers/publication_requests_controller_spec.rb:68">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with invalid params returns unprocessable_entity status" time="0.036096" location="./spec/controllers/publication_requests_controller_spec.rb:73">
+    </testcase>
+    <testcase name="PublicationRequestsController POST #create with invalid params should not send any emails" time="0.034091" location="./spec/controllers/publication_requests_controller_spec.rb:78">
+    </testcase>
+    <testcase name="PublicationRequestsController PUT #update with invalid params assigns the publication_request as @publication_request" time="0.036043" location="./spec/controllers/publication_requests_controller_spec.rb:107">
+    </testcase>
+    <testcase name="PublicationRequestsController PUT #update with invalid params returns unprocessable_entity status" time="0.028577" location="./spec/controllers/publication_requests_controller_spec.rb:112">
+    </testcase>
+    <testcase name="RequestAttachmentsController POST #create with invalid params assigns a newly created but unsaved request_attachment as @request_attachment" time="2.133806" location="./spec/controllers/request_attachments_controller_spec.rb:71">
+    </testcase>
+    <testcase name="RequestAttachmentsController POST #create with invalid params returns unprocessable_entity status" time="2.618816" location="./spec/controllers/request_attachments_controller_spec.rb:76">
+    </testcase>
+    <testcase name="RequestAttachmentsController PUT #update with invalid params assigns the request_attachment as @request_attachment" time="2.147427" location="./spec/controllers/request_attachments_controller_spec.rb:102">
+    </testcase>
+    <testcase name="RequestAttachmentsController PUT #update with invalid params returns unprocessable_entity status" time="1.938665" location="./spec/controllers/request_attachments_controller_spec.rb:107">
+    </testcase>
+    <testcase name="StatusesController POST #create with invalid params assigns a newly created but unsaved status as @status" time="0.035597" location="./spec/controllers/statuses_controller_spec.rb:56">
+    </testcase>
+    <testcase name="StatusesController POST #create with invalid params returns unprocessable_entity status" time="0.034597" location="./spec/controllers/statuses_controller_spec.rb:61">
+    </testcase>
+    <testcase name="StatusesController PUT #update with invalid params assigns the status as @status" time="0.040109" location="./spec/controllers/statuses_controller_spec.rb:88">
+    </testcase>
+    <testcase name="StatusesController PUT #update with invalid params returns unprocessable_entity status" time="0.035099" location="./spec/controllers/statuses_controller_spec.rb:93">
+    </testcase>
+    <testcase name="TemplatesController POST #create with invalid params assigns a newly created but unsaved template as @template" time="1.49376" location="./spec/controllers/templates_controller_spec.rb:56">
+    </testcase>
+    <testcase name="TemplatesController POST #create with invalid params returns unprocessable_entity status" time="1.657141" location="./spec/controllers/templates_controller_spec.rb:61">
+    </testcase>
+    <testcase name="TemplatesController PUT #update with invalid params assigns the template as @template" time="2.052558" location="./spec/controllers/templates_controller_spec.rb:88">
+    </testcase>
+    <testcase name="TemplatesController PUT #update with invalid params returns unprocessable_entity status" time="1.692376" location="./spec/controllers/templates_controller_spec.rb:93">
+    </testcase>
+    <testcase name="UsersController POST #create with invalid params assigns a newly created but unsaved user as @user" time="0.034187" location="./spec/controllers/users_controller_spec.rb:63">
+    </testcase>
+    <testcase name="UsersController POST #create with invalid params returns unprocessable_entity status" time="0.034091" location="./spec/controllers/users_controller_spec.rb:68">
+    </testcase>
+    <testcase name="UsersController PUT #update with invalid params assigns the user as @user" time="0.035097" location="./spec/controllers/users_controller_spec.rb:94">
+    </testcase>
+    <testcase name="UsersController PUT #update with invalid params returns unprocessable_entity status" time="0.037113" location="./spec/controllers/users_controller_spec.rb:99">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/comments_controller_spec.rb:104" name="DELETE #destroy" tests="12" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="CommentsController DELETE #destroy destroys the requested comment" time="0.038099" location="./spec/controllers/comments_controller_spec.rb:105">
+    </testcase>
+    <testcase name="CommentsController DELETE #destroy redirects to the comments list" time="0.034447" location="./spec/controllers/comments_controller_spec.rb:111">
+    </testcase>
+    <testcase name="PublicationRequestsController DELETE #destroy destroys the requested publication_request" time="0.037101" location="./spec/controllers/publication_requests_controller_spec.rb:120">
+    </testcase>
+    <testcase name="PublicationRequestsController DELETE #destroy redirects to the publication requests list" time="0.031085" location="./spec/controllers/publication_requests_controller_spec.rb:126">
+    </testcase>
+    <testcase name="RequestAttachmentsController DELETE #destroy destroys the requested request_attachment" time="1.815306" location="./spec/controllers/request_attachments_controller_spec.rb:115">
+    </testcase>
+    <testcase name="RequestAttachmentsController DELETE #destroy redirects to the publication requests list" time="1.894648" location="./spec/controllers/request_attachments_controller_spec.rb:121">
+    </testcase>
+    <testcase name="StatusesController DELETE #destroy destroys the requested status" time="0.052643" location="./spec/controllers/statuses_controller_spec.rb:101">
+    </testcase>
+    <testcase name="StatusesController DELETE #destroy redirects to the statuses list" time="0.04111" location="./spec/controllers/statuses_controller_spec.rb:107">
+    </testcase>
+    <testcase name="TemplatesController DELETE #destroy destroys the requested template" time="1.868106" location="./spec/controllers/templates_controller_spec.rb:101">
+    </testcase>
+    <testcase name="TemplatesController DELETE #destroy redirects to the publication requests list" time="1.940839" location="./spec/controllers/templates_controller_spec.rb:107">
+    </testcase>
+    <testcase name="UsersController DELETE #destroy destroys the requested user" time="0.04111" location="./spec/controllers/users_controller_spec.rb:107">
+    </testcase>
+    <testcase name="UsersController DELETE #destroy redirects to the users list" time="0.032146" location="./spec/controllers/users_controller_spec.rb:113">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:24" name="with valid email" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController POST #create with valid email should assign the user" time="0.588835" location="./spec/controllers/password_resets_controller_spec.rb:28">
+    </testcase>
+    <testcase name="PasswordResetsController POST #create with valid email should send an email" time="0.057151" location="./spec/controllers/password_resets_controller_spec.rb:32">
+    </testcase>
+    <testcase name="PasswordResetsController POST #create with valid email should respond with 204" time="0.038143" location="./spec/controllers/password_resets_controller_spec.rb:38">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:43" name="with invalid email" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController POST #create with invalid email should not assign the user" time="0.022092" location="./spec/controllers/password_resets_controller_spec.rb:48">
+    </testcase>
+    <testcase name="PasswordResetsController POST #create with invalid email should not send an email" time="0.026096" location="./spec/controllers/password_resets_controller_spec.rb:52">
+    </testcase>
+    <testcase name="PasswordResetsController POST #create with invalid email should still respond with 204" time="0.023022" location="./spec/controllers/password_resets_controller_spec.rb:58">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:65" name="with valid token and valid password" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController PUT #update with valid token and valid password should assign the user" time="0.031192" location="./spec/controllers/password_resets_controller_spec.rb:69">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token and valid password should respond with 204" time="0.027108" location="./spec/controllers/password_resets_controller_spec.rb:76">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:81" name="with valid token but invalid password" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController PUT #update with valid token but invalid password should assign the user" time="0.029078" location="./spec/controllers/password_resets_controller_spec.rb:85">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but invalid password should eq 422" time="0.028655" location="./spec/controllers/password_resets_controller_spec.rb:88">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but invalid password should match /error/" time="0.028081" location="./spec/controllers/password_resets_controller_spec.rb:89">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:92" name="with valid token but missing password confirmation" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController PUT #update with valid token but missing password confirmation should assign the user" time="0.027072" location="./spec/controllers/password_resets_controller_spec.rb:96">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but missing password confirmation should eq 422" time="0.029041" location="./spec/controllers/password_resets_controller_spec.rb:99">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but missing password confirmation should match /error/" time="0.02763" location="./spec/controllers/password_resets_controller_spec.rb:100">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:103" name="with valid token but made too long ago" tests="4" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController PUT #update with valid token but made too long ago should assign the user" time="0.024064" location="./spec/controllers/password_resets_controller_spec.rb:107">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but made too long ago should eq 422" time="0.023059" location="./spec/controllers/password_resets_controller_spec.rb:110">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but made too long ago should match /error/" time="0.023066" location="./spec/controllers/password_resets_controller_spec.rb:111">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with valid token but made too long ago should match /expired/" time="0.025078" location="./spec/controllers/password_resets_controller_spec.rb:112">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/password_resets_controller_spec.rb:115" name="with invalid token" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="PasswordResetsController PUT #update with invalid token should not assign the user" time="0.023088" location="./spec/controllers/password_resets_controller_spec.rb:119">
+    </testcase>
+    <testcase name="PasswordResetsController PUT #update with invalid token should eq 404" time="0.027048" location="./spec/controllers/password_resets_controller_spec.rb:122">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/sessions_controller_spec.rb:28" name="with valid credentials" tests="3" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="SessionsController POST #create with valid credentials should be success" time="0.096855" location="./spec/controllers/sessions_controller_spec.rb:31">
+    </testcase>
+    <testcase name="SessionsController POST #create with valid credentials should eq {&quot;user_email&quot;=&gt;&quot;user@email.com&quot;, &quot;auth_token&quot;=&gt;&quot;token&quot;}" time="0.018554" location="./spec/controllers/sessions_controller_spec.rb:32">
+    </testcase>
+    <testcase name="SessionsController DELETE #destroy with valid credentials should be success" time="0.023061" location="./spec/controllers/sessions_controller_spec.rb:55">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/sessions_controller_spec.rb:35" name="with invalid credentials" tests="2" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="SessionsController POST #create with invalid credentials should eq 401" time="0.026574" location="./spec/controllers/sessions_controller_spec.rb:38">
+    </testcase>
+    <testcase name="SessionsController DELETE #destroy with invalid credentials should eq 401" time="0.012031" location="./spec/controllers/sessions_controller_spec.rb:61">
+    </testcase>
+  </testsuite>
+  <testsuite location="./spec/controllers/sessions_controller_spec.rb:41" name="with missing/invalid params" tests="1" errors="0" failures="0" skipped="0">
+    <properties/>
+    <testcase name="SessionsController POST #create with missing/invalid params should eq 422" time="0.020054" location="./spec/controllers/sessions_controller_spec.rb:44">
     </testcase>
   </testsuite>
 </testsuites>
