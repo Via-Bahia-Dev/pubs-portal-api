@@ -1,6 +1,13 @@
 class PublicationRequestsController < ApplicationController
-
   load_and_authorize_resource
+
+  def index
+    render json: { data: serialized_objects(@publication_requests) }
+  end
+
+  def show
+    render json: { data: serialized_objects(@publication_request) }
+  end
 
   def create
     @publication_request = PublicationRequest.new(publication_request_params)
@@ -30,15 +37,6 @@ class PublicationRequestsController < ApplicationController
   def destroy
     @publication_request.destroy
     head :no_content
-  end
-
-  def index
-    @publication_requests = PublicationRequest.all
-    render json: { data: serialized_objects(@publication_requests) }
-  end
-
-  def show
-    render json: { data: serialized_objects(@publication_request) }
   end
 
   private

@@ -26,7 +26,7 @@ RSpec.describe StatusesController, type: :controller do
   describe "GET #index" do
     it "should assign all statuses as @statuses" do
       get :index, { format: :json }
-      expect(assigns(:statuses)).to eq(Status.all)
+      expect(assigns(:statuses)).to eq([status])
     end
   end
 
