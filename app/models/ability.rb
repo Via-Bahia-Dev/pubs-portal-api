@@ -46,24 +46,18 @@ class Ability
   end
 
   def user_attachment_abilities(user)
-    can :read, RequestAttachment
-    can :create, RequestAttachment
-    can :update, RequestAttachment, :user_id => user.id
-    can :destroy, RequestAttachment, :user_id => user.id
+    standard_crud(user, RequestAttachment)
   end
 
   def user_comment_abilities(user)
-    can :read, Comment
-    can :create, Comment
-    can :update, Comment, :user_id => user.id
-    can :destroy, Comment, :user_id => user.id
+    standard_crud(user, Comment)
   end
 
-  def user_template_abilities(user)
+  def user_template_abilities
     can :read, Template
   end
 
-  def user_status_abilities(user)
+  def user_status_abilities
     can :read, Status
   end
 
@@ -80,6 +74,13 @@ class Ability
   def reviewer_request_abilities(user)
     can :read, PublicationRequest, :reviewer_id => user.id
     can :review, PublicationRequest, :reviewer_id => user.id
+  end
+
+  def standard_crud(user, model)
+    can :create, model
+    can :read, model
+    can :update, model, :user_id => user.id
+    can :destroy, model, :user_id => user.id
   end
 
 end
