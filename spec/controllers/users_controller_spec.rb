@@ -23,11 +23,12 @@ RSpec.describe UsersController, type: :controller do
   }
 
   let!(:user) { User.create(valid_attributes) }
-  
+  let!(:logged_in_user) { User.find_by(email: "user@email.com") }
+
   describe "GET #index" do
     it "assigns all users as @users" do
       get :index, { format: :json }
-      expect(assigns(:users)).to eq(User.all)
+      expect(assigns(:users)).to eq([logged_in_user, user])
     end
   end
 
