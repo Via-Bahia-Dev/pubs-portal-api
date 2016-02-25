@@ -12,9 +12,9 @@ class Ability
       user_user_abilities(user)
       user_attachment_abilities(user)
       user_comment_abilities(user)
-      user_template_abilities(user)
+      user_template_abilities
       user_request_abilities(user)
-      user_status_abilities(user)
+      user_status_abilities
     end
 
     if user.has_role? :designer
