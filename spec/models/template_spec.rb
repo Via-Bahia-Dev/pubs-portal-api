@@ -4,7 +4,7 @@ RSpec.describe Template, type: :model do
 
   let(:template) { Template.create(name: "2015 NSWN Flyer", dimensions: "5x7", user_id: 1) }
 
-  describe "paperclip attachment" do 
+  describe "paperclip attachment" do
     it { should have_attached_file(:image) }
     it { should validate_attachment_presence(:image) }
     it { should validate_attachment_content_type(:image).
@@ -17,7 +17,6 @@ RSpec.describe Template, type: :model do
     it { is_expected.to have_db_column(:user_id).of_type(:integer) }
     it { is_expected.to have_db_column(:dimensions).of_type(:string) }
     it { is_expected.to have_db_column(:link).of_type(:string) }
-    it { is_expected.to have_db_column(:category).of_type(:string) }
   end
 
   describe "associations" do
