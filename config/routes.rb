@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :statuses, only: [:index, :show, :create, :update, :destroy]
   resources :templates, only: [:index, :show, :create, :update, :destroy]
+  resources :tags, only: [:index]
 
   # This needs to be last!
   match "/*path",

@@ -1,5 +1,5 @@
 class TemplateSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user_id, :dimensions, :image_file_name, :image_file_size, :image_original, :image_large, :image_medium, :image_small, :image_large_thumb, :image_thumb, :link, :category
+  attributes :id, :name, :user_id, :dimensions, :image_file_name, :image_file_size, :image_original, :image_large, :image_medium, :image_small, :image_large_thumb, :image_thumb, :link, :tags
 
   def image_original
   	object.image.url
